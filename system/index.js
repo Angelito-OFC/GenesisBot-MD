@@ -31,7 +31,7 @@ let __dirname = dirname(fileURLToPath(import.meta.url))
 let require = createRequire(__dirname)
 let { say } = cfonts
 
-say('Ai\nHoshino', {
+say('Genesis\nAi', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
