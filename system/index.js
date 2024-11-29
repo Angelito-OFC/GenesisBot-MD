@@ -37,7 +37,7 @@ say('Genesis\nAi', {
   gradient: ['red', 'magenta']
 })
 
-say('Simple WhatsApp Bot\nMulti Device', {
+say('Developed By • Angel-OFC\nTeam starcore', {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']
