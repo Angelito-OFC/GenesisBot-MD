@@ -1,7 +1,7 @@
 {
-	"name": "Ai Hoshino",
-	"version": "6.0.0",
-	"description": "Simple WhatsApp Bot Multi Device",
+	"name": "Génesis Ai",
+	"version": "2.0.0",
+	"description": "WhatsApp Bot Multi Device",
 	"main": "system/index.js",
 	"type": "module",
 	"directories": {
@@ -23,16 +23,16 @@
 		"MD",
 		"baileys-md"
 	],
-	"homepage": "https://github.com/StarlightsTeam/Ai-Hoshino",
+	"homepage": "https://github.com/Angelito-OFC/GenesisBot-MD",
 	"author": {
-		"name": "おDaniel.xyz⁩"
+		"name": "Angel-OFC"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StarlightsTeam/Ai-Hoshino.git"
+		"url": "git+https://github.com/Angelito-OFC/GenesisBot-MD.git"
 	},
 	"bugs": {
-		"url": "https://github.com/StarlightsTeam/Ai-Hoshino/issues"
+		"url": "https://github.com/Angelito-OFC/GenesisBot-MD/issues"
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
