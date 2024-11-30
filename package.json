@@ -48,7 +48,7 @@
 		"neastooapi": "^1.0.2",
 		"canvacard": "^6.0.3",
 		"canvafy": "^7.2.0",
-		"ruhend-scraper": "8.0.4",
+		"ruhend-scraper": "^8.0.4",
 		"rahad-media-downloader": "^2.1.14",
 		"imran-spotifydl": "^1.0.12",
 		"@nechlophomeriaa/spotifydl": "^1.0.31",
