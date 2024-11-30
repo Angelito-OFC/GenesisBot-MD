@@ -33,7 +33,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
             throw new Error('Error al obtener datos de la API');
         }
 
-        let { title, dl: audio, author, thumb: thumbnail, duration } = result.data;
+        let { title, dl, author, thumb, duration } = result.data;
 
         await conn.sendMessage(m.chat, { 
             audio: { url: audio }, 
