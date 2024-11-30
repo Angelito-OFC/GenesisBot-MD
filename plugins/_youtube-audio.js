@@ -49,7 +49,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                     body: author,
                     mediaType: 2, 
                     sourceUrl: videoUrl,
-                    thumbnail: await (await fetch(thumbnail)).buffer()
+                    thumbnail: await (await fetch(thumb)).buffer()
                 }
             }
         }, { quoted: m });
