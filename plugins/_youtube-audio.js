@@ -36,7 +36,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         let { title, dl, author, thumb, duration } = result.data;
 
         await conn.sendMessage(m.chat, { 
-            audio: { url: audio }, 
+            audio: { url: dl }, 
             mimetype: "audio/mp4", 
             fileName: `${title}.mp3`, 
             quoted: m, 
