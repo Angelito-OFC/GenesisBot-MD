@@ -1,3 +1,5 @@
+
+
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
@@ -27,27 +29,21 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `
-  *─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
+  before: `*Hola*\`%name\` *Soy Genesis %greeting*
 
-“ Hola *%name* soy *Ai Hoshino*, %greeting ”
+➫ _\`ᴀᴄᴛɪᴠᴏ\`_ :: _%muptime_
+➫ _\`ᴜꜱᴜᴀʀɪᴏꜱ\`_ :: _%rtotalreg de %totalreg_
+➫ _\`ᴄᴏʀᴀᴢᴏɴᴇꜱ\`_ :: _%corazones_
+➫ _\`ᴘʀᴇꜰɪᴊᴏ\`_ :: _< . >_
+➫ _\`ᴘᴀᴛʀᴏᴄɪɴᴀᴅᴏʀ\`_ :: _Tk-Host_
 
-╭── ︿︿︿︿︿ *⭒   ⭒   ⭒   ⭒   ⭒   ⭒*
-┊ ‹‹ *Hello* :: *%name*
-┊•*⁀➷ °⭒⭒⭒ *【 ✯ Starlights Team ✰ 】*
-╰─── ︶︶︶︶ ✰⃕  ⌇ *⭒ ⭒ ⭒*   ˚̩̥̩̥*̩̩͙✩
-┊🍬 [ *Modo* :: *Público*
-┊📚 [ *Baileys* :: *Multi Device*
-┊⏱ [ *Tiempo Activo* :: *%muptime*
-┊👤 [ *Usuarios* :: *%totalreg*
-╰─────────
-%readmore
-*─ׄ─ׅ─ׄ─⭒ L I S T A  -  M E N Ú S ⭒─ׄ─ׅ─ׄ─*
+▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+ %readmore
 `.trimStart(),
-  header: '╭── ︿︿︿︿︿ *⭒   ⭒   ⭒   ⭒   ⭒   ⭒*\n┊ ‹‹ *Category* :: *%category*\n┊•*⁀➷ °⭒⭒⭒ *【 ✯ Starlights Team ✰ 】*\n╰─── ︶︶︶︶ ✰⃕  ⌇ *⭒ ⭒ ⭒*   ˚̩̥̩̥*̩̩͙✩',
-    body: '│🍂⃟🎃┊%cmd %islimit %isPremium\n',
+  header: '╭─(❀)❝┊ *_`%category`_* ┊❝(❀',
+    body: '┊➫ %cmd %islimit %isPremium\n',
    footer: '╰─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒\n',
-    after: `> 🚩 ${textbot}`,
+    after: `> ©️ ρσωε૨ ɓყ ƭεαɱ รƭα૨૮σ૨ε`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
@@ -163,10 +159,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let pp13 = 'https://telegra.ph/file/ba7c4a3eb7bf3d892b0c8.mp4'
     let pp14 = 'https://tinyurl.com/ymlqb6ml'
     let pp15 = 'https://tinyurl.com/ykv7g4zy'
-    let img = `./storage/img/menu.jpg`
-    await m.react('⭐')
+    let img = 'https://pomf2.lain.la/f/znvuwfv4.jpg'
+    await m.react('🤍')
    // await conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15].getRandom() }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: estilo })
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', text.trim(), m, null, rcanal)
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', text.trim(), m, null, fake)
    //await conn.sendAi(m.chat, botname, textbot, text.trim(), img, img, canal, estilo)
 
   } catch (e) {
