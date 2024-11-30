@@ -32,7 +32,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
       txt += `│  ✩  *Premium* : ${prem ? 'Si' : 'No'}\n`
       txt += `└  ✩  *Registrado* : ${registered ? 'Si': 'No'}`
   let mentionedJid = [who]
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, fake)
 }
 handler.help = ['perfil', 'perfil *@user*']
 handler.tags = ['rg']
