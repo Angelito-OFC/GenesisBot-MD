@@ -1,5 +1,3 @@
-
-
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
