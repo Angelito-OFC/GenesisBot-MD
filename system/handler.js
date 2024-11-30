@@ -28,7 +28,7 @@ export async function handler(chatUpdate) {
         if (!m)
             return
         m.exp = 0
-        m.limit = false
+        m.corazones = false
         try {
             let user = global.db.data.users[m.sender]
             if (typeof user !== 'object')
@@ -37,7 +37,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.exp))
                     user.exp = 0
                 if (!isNumber(user.limit))
-                    user.limit = 10
+                    user.corazones = 10
                 if (!('premium' in user)) 
                     user.premium = false
                 if (!user.premium) 
@@ -67,7 +67,7 @@ export async function handler(chatUpdate) {
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
-                    limit: 10,
+                    corazones: 10,
                     registered: false,
                     name: m.name,
                     age: -1,
@@ -292,8 +292,8 @@ export async function handler(chatUpdate) {
                     m.reply('chirrido -_-')
                 else
                     m.exp += xp
-                if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                    conn.reply(m.chat, `Se agotaron tus *⭐ Estrellas*`, m, rcanal)
+                if (!isPrems && plugin.corazones && global.db.data.users[m.sender].corazones < plugin.corazones * 1) {
+                    conn.reply(m.chat, `Se agotaron tus *🤍 corazones*`, m, rcanal)
                     continue
                 }
                 let extra = {
@@ -322,7 +322,7 @@ export async function handler(chatUpdate) {
                 try {
                     await plugin.call(this, m, extra)
                     if (!isPrems)
-                        m.limit = m.limit || plugin.limit || false
+                        m.corazones = m.corazones || plugin.corazones || false
                 } catch (e) {
                     m.error = e
                     console.error(e)
@@ -340,8 +340,8 @@ export async function handler(chatUpdate) {
                             console.error(e)
                         }
                     }
-                    if (m.limit)
-                        conn.reply(m.chat, `Utilizaste *${+m.limit}* ⭐`, m, rcanal)
+                    if (m.corazones)
+                        conn.reply(m.chat, `Utilizaste *${+m.corazones}* 🤍`, m, rcanal)
                 }
                 break
             }
@@ -358,7 +358,7 @@ export async function handler(chatUpdate) {
         if (m) {
             if (m.sender && (user = global.db.data.users[m.sender])) {
                 user.exp += m.exp
-                user.limit -= m.limit * 1
+                user.corazones -= m.corazones * 1
             }
 
             let stat
