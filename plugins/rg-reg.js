@@ -33,7 +33,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
       txt += `\`━━━━━━━━━━━━━━━━━━━━\`\n\n`
       txt += `> Escribe *${usedPrefix}profile* para ver tu perfil.`
       
-  await conn.sendFile(m.chat, img, 'perfil.jpg', txt, m, null, fake, false, { mentions: [m.sender] })
+  await conn.sendFile(m.chat, img, 'perfil.jpg', txt, m, false, { mentions: [m.sender] })
   await m.react('✅')
 }
 
