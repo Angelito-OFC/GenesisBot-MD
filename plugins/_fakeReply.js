@@ -94,7 +94,7 @@ global.fake = {
         }
         // Fake 🤥
         global.ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 9999999999999999999999999999999999999999999999999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
-        global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./catalogo.png'), sendEphemeral: true } } }
+        global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png'), thumbnail: fs.readFileSync('./storage/img/catalogo.png'), sendEphemeral: true } } }
         global.fvn = {
             key: {
                 fromMe: false,
@@ -131,7 +131,7 @@ newsletterJid: '120363210705976689@newsletter',
                 "extendedTextMessage": {
                     "text": wm,
                     "title": wm,
-                    'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')
+                    'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png')
                 }
             }
         }
@@ -143,7 +143,7 @@ newsletterJid: '120363210705976689@newsletter',
                 participant: `0@s.whatsapp.net`, ...(m.chat ?
                     { remoteJid: "status@broadcast" } : {})
             },
-            message: { "liveLocationMessage": { "caption": "by : WH MODS DEV", "h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg') } }
+            message: { "liveLocationMessage": { "caption": "by : WH MODS DEV", "h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png') } }
         }
 
         global.fliveLoc2 = {
@@ -153,7 +153,7 @@ newsletterJid: '120363210705976689@newsletter',
                 participant: `0@s.whatsapp.net`, ...(m.chat ?
                     { remoteJid: "status@broadcast" } : {})
             },
-            message: { "liveLocationMessage": { "title": "WH MODS DEV", "h": wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg') } }
+            message: { "liveLocationMessage": { "title": "WH MODS DEV", "h": wm, 'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png') } }
         }
 
         global.ftoko = {
@@ -166,7 +166,7 @@ newsletterJid: '120363210705976689@newsletter',
                     "product": {
                         "productImage": {
                             "mimetype": "image/jpeg",
-                            "jpegThumbnail": fs.readFileSync('./thumbnail.jpg') //Gambarnye
+                            "jpegThumbnail": fs.readFileSync('./storage/img/catalogo.png') //Gambarnye
                         },
                         "title": wm, 
                         "description": "Simple Bot Esm",
@@ -187,7 +187,7 @@ newsletterJid: '120363210705976689@newsletter',
             message: {
                 documentMessage: {
                     title: wm,
-                    jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+                    jpegThumbnail: fs.readFileSync('./storage/img/catalogo.png')
                 }
             }
         }
@@ -204,7 +204,7 @@ newsletterJid: '120363210705976689@newsletter',
                     "inviteCode": "null",
                     "groupName": "Kawan WH MODS DEV",
                     "caption": wm,
-                    'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')
+                    'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png')
                 }
             }
         }
@@ -222,7 +222,7 @@ newsletterJid: '120363210705976689@newsletter',
                     'seconds': '999999999',
                     'gifPlayback': 'true',
                     'caption': wm,
-                    'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')
+                    'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png')
                 }
             }
         }
