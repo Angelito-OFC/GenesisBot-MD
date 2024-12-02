@@ -65,7 +65,7 @@ export default handler; */
 import Starlights from '@StarlightsTeam/Scraper';
 import fetch from 'node-fetch';
 
-let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) => {
+let handler = async (m, { conn, text, isPrems, isOwner }) => {
     if (!m.quoted) {
         return conn.reply(m.chat, `*\`Etiqueta el mensaje que contenga el resultado del Play.🤍\`*`, m)
             .then(() => m.react('✖️'));
@@ -125,9 +125,12 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     }
 };
 
+// Mantén el customPrefix para que funcione sin prefijos
 handler.help = ['video'];
 handler.tags = ['downloader'];
-handler.command = /^(video)$/i;
+handler.customPrefix = /^(video|Video|VIDEO)$/i; // Permite activarse con "video" en cualquier formato
+handler.command = new RegExp; // No requiere prefijo explícito
 
 export default handler;
+
 
