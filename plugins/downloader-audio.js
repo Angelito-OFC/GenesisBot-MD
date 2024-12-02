@@ -6,7 +6,7 @@ if (!args[0]) return m.reply("ingresa un link de youtube")
 try {
 let api = await fetch(`https://api.agatz.xyz/api/ytmp3?url=${args[0]}`)
 let json = await api.json()
-let { title, downloadUrl:dl_url, thumbnail } = json.data
+let { title, dl_url, thumbnail } = json.data
 await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
  
 } catch (error) {
