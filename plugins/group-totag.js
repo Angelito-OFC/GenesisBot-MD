@@ -1,15 +1,26 @@
-let handler = async (m, { conn, text, participants}) => {
-	
-    let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-    if (!m.quoted) return m.reply(`🚩 Responde a un mensaje.`)
-    conn.sendMessage(m.chat, { forward: m.quoted.fakeObj, mentions: users } )
+import MessageType from '@whiskeysockets/baileys'
+import { generateWAMessageFromContent } from '@adiwajshing/baileys'
+
+let handler = async (m, { conn, text, participants }) => {
+let users = participants.map(u => conn.decodeJid(u.id))
+let q = m.quoted ? m.quoted : m
+let c = m.quoted ? m.quoted : m.msg
+const msg = conn.cMod(m.chat,
+generateWAMessageFromContent(m.chat, {
+[c.toJSON ? q.mtype : 'extendedTextMessage']: c.toJSON ? c.toJSON() : {
+text: c || ''
 }
-
-handler.help = ['tag']
-handler.tags = ['group']
-handler.command = /^(totag|tag)$/i
-
-handler.admin = true
+}, {
+userJid: conn.user.id
+}),
+text || q.text, conn.user.jid, { mentions: users }
+)
+await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
+}
+handler.help = ['n <mensaje>']
+handler.tags = ['grupo']
+handler.command = ['n', 'notify'] 
 handler.group = true
+handler.admin = true
 
 export default handler
