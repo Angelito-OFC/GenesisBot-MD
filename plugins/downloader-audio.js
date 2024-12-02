@@ -14,10 +14,10 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
                 conn.sendFile(m.chat, dl_url, title + '.mp3', `
  ≡  *TX YTDL*
   
-❖ *📌${mssg.title}* : ${title}
-❖ *⚖️${mssg.size}* : ${size}
+❖ *📌 título* : ${title}
+❖ *⚖️ Peso* : ${size}
 `.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-                m.react(done)
+                m.react(✅)
          } catch {
   try {
                 let yt = await fg.ytmp3(args[0])
@@ -25,12 +25,12 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
                 conn.sendFile(m.chat, dl_url, title + '.mp3', `
  ≡  *TX YTDL 2*
   
-❖ *📌${mssg.title}* : ${title}
-❖ *⚖️${mssg.size}* : ${size}
+❖ *📌 titulo* : ${title}
+❖ *⚖️ Peso* : ${size}
 `.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-                m.react(done)
+                m.react(✅)
         } catch {
-                        await m.reply(`❎ ${mssg.error}`)
+                        await m.reply(`❎ error`)
 } 
 }
 
