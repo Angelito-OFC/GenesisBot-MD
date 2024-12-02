@@ -119,9 +119,10 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     }
 };
 
-handler.help = ['ytmp4'];
+handler.help = ['video'];
 handler.tags = ['downloader'];
-handler.command = ['ytmp4', 'ytv', 'yt'];
+handler.customPrefix = /^(Video|video)/;
+handler.command = new RegExp;
 
 export default handler;
 
