@@ -1,4 +1,4 @@
-/* import Starlights from '@StarlightsTeam/Scraper'
+import Starlights from '@StarlightsTeam/Scraper'
 import fetch from 'node-fetch'
 import Sph from 'ytdl-mp3'
 
@@ -68,4 +68,4 @@ handler.tags = ['downloader']
 handler.command = ['ytmp3', 'yta', 'fgmp3']
 handler.register = true
 
-export default handler */
+export default handler
