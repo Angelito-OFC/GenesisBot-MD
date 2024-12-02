@@ -22,8 +22,7 @@ const handler = async (m, {conn, text, usedPrefix, command, args}) => {
             const caption = res.caption ? res.caption : '*TWITTER - VIDEO*';
             for (let i = 0; i < res.media.length; i++) {
 
-                await conn.sendFile(m.chat, res.media[i].url, caption, m, null, rcanal)
-                // await conn.sendMessage(m.chat, { video: { url: res.media[i].url }, caption: caption }, { quoted: m });
+                await conn.sendMessage(m.chat, { video: { url: res.media[i].url }, caption: caption }, { quoted: m });
             }
 
             enviando = false;
