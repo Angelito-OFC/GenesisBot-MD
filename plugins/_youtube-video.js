@@ -87,11 +87,15 @@ let handler = async (m, { conn, text, isPrems, isOwner }) => {
 
     await m.react('🕓');
     try {
-        let { title, duration, size, thumbnail, dl_url } = await Starlights.ytmp4v2(videoUrl);
+        // Llamar al scraper
+        let result = await Starlights.ytmp4v2(videoUrl);
 
-        if (!title || !dl_url) {
-            throw new Error('No se pudo obtener información del video.');
+        // Validar que el resultado sea válido
+        if (!result || !result.title || !result.dl_url) {
+            throw new Error('No se pudo obtener información válida del video.');
         }
+
+        let { title, duration, size, thumbnail, dl_url } = result;
 
         if (parseFloat(size.split('MB')[0]) >= 100) {
             return conn.reply(m.chat, `El archivo pesa más de 100 MB, se canceló la descarga.`, m)
@@ -120,15 +124,14 @@ let handler = async (m, { conn, text, isPrems, isOwner }) => {
         await m.react('✅');
     } catch (e) {
         console.error(e);
-        await conn.reply(m.chat, `*\`Hubo un error al procesar la descarga.🤍\`*`, m)
+        await conn.reply(m.chat, `*\`Hubo un error al procesar la descarga.🤍\`*\n\n_Error:_ ${e.message}`, m)
             .then(() => m.react('✖️'));
     }
 };
 
-// Mantén el customPrefix para que funcione sin prefijos
 handler.help = ['video'];
 handler.tags = ['downloader'];
-handler.customPrefix = /^(video|Video|VIDEO)$/i; // Permite activarse con "video" en cualquier formato
+handler.customPrefix = /^(video|Video|VIDEO)$/i; // Funciona sin prefijos explícitos
 handler.command = new RegExp; // No requiere prefijo explícito
 
 export default handler;
