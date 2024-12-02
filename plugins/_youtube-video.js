@@ -71,15 +71,16 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
             .then(() => m.react('✖️'));
     }
 
-    if (!m.quoted.text.includes("*\`【Y O U T U B E - P L A Y】\`*")) {
+    if (!m.quoted.text || !m.quoted.text.includes("【Y O U T U B E - P L A Y】")) {
         return conn.reply(m.chat, `*\`Etiqueta el mensaje que contenga el resultado del Play.🤍\`*`, m)
             .then(() => m.react('✖️'));
     }
 
-    let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'));
+    let urls = m.quoted.text.match(/https?:\/\/(?:www\.|m\.)?youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|.+&v=)?([a-zA-Z0-9_-]{11})|youtu\.be\/([a-zA-Z0-9_-]{11})/g);
 
-    if (!urls) {
-        return conn.reply(m.chat, `*\`Resultado no Encontrado.🤍\`*`, m).then(() => m.react('✖️'));
+    if (!urls || urls.length === 0) {
+        return conn.reply(m.chat, `*\`No se encontraron enlaces de YouTube válidos.🤍\`*`, m)
+            .then(() => m.react('✖️'));
     }
 
     let videoUrl = urls[0];
@@ -87,6 +88,10 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     await m.react('🕓');
     try {
         let { title, duration, size, thumbnail, dl_url } = await Starlights.ytmp4v2(videoUrl);
+
+        if (!title || !dl_url) {
+            throw new Error('No se pudo obtener información del video.');
+        }
 
         if (parseFloat(size.split('MB')[0]) >= 100) {
             return conn.reply(m.chat, `El archivo pesa más de 100 MB, se canceló la descarga.`, m)
@@ -98,7 +103,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         caption += `📁 *Tamaño:* ${size}\n`;
         caption += `📥 *El vídeo se está descargando, por favor espera...*`;
 
-        let img = await (await fetch(thumbnail)).buffer();
+        let img = await fetch(thumbnail).then(res => res.buffer());
 
         await conn.sendMessage(m.chat, { 
             image: img, 
@@ -115,14 +120,14 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         await m.react('✅');
     } catch (e) {
         console.error(e);
-        await conn.reply(m.chat, `*\`Hubo un error al procesar la descarga.🤍\`*`, m).then(() => m.react('✖️'));
+        await conn.reply(m.chat, `*\`Hubo un error al procesar la descarga.🤍\`*`, m)
+            .then(() => m.react('✖️'));
     }
 };
 
 handler.help = ['video'];
 handler.tags = ['downloader'];
-handler.customPrefix = /^(Video|video)/;
-handler.command = new RegExp;
+handler.command = /^(video)$/i;
 
 export default handler;
 
