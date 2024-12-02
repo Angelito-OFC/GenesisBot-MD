@@ -22,7 +22,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 *🎞️ Calidad:* ${quality}
 *⚖️ peso :* ${size}
 `.trim(), m, false, { asDocument: false })
-                m.react(done) 
+                m.react(✅) 
          } catch {
 
         try {
@@ -38,10 +38,10 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 *🎞️ Calidad:* ${quality}
 ❖ *Peso* : ${size}
 `.trim(), m, false, { asDocument: false })
-                m.react(done)
+                m.react(✅)
 
         } catch {
-                await m.reply(`❎ ${mssg.error}`)
+                await m.reply(`❎ error`)
         }
                 } 
 }
