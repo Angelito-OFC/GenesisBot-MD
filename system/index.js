@@ -37,7 +37,7 @@ say('Genesis\nAi', {
   gradient: ['red', 'magenta']
 })
 
-say('Developed By • Angel-OFC\nTeam starcore', {
+say('Developed By • Angel-OFC\nTeam starcore\nTeam Galaxy', {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']
