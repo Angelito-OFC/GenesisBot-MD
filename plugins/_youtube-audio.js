@@ -1,4 +1,3 @@
-import Starlights from '@StarlightsTeam/Scraper';
 import fetch from 'node-fetch';
 import Sph from 'ytdl-mp3';
 
@@ -20,37 +19,21 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     await m.react('🕓');
 
     try {
-        // Primera opción: Usar ytmp3 de Starlights
-        let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3(videoUrl);
-
-        let img = await (await fetch(thumbnail)).buffer();
+        // Segunda opción: Usar ytdl-mp3
+        let cxf = await Sph.ytdl(videoUrl);
         let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
-                  `✩   *Título* : ${title}\n` +
-                  `✩   *Calidad* : ${quality}\n` +
-                  `✩   *Tamaño* : ${size}\n\n` +
-                  `>- 🤍 El audio se está enviando, espera un momento...`;
+                  `✩   *Título* : ${cxf.title}\n` +
+                  `✩   *Calidad* : ${cxf.quality}\n` +
+                  `✩   *Url* : ${cxf.url}\n\n` +
+                  `>- 🤎 El audio se está enviando, espera un momento...`;
 
-       // await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
-        await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
+        // await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
         await m.react('✅');
-    } catch (error1) {
-        try {
-            // Segunda opción: Usar ytdl-mp3
-            let cxf = await Sph.ytdl(videoUrl);
-            let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
-                      `✩   *Título* : ${cxf.title}\n` +
-                      `✩   *Calidad* : ${cxf.quality}\n` +
-                      `✩   *Url* : ${cxf.url}\n\n` +
-                      `>- 🤎 El audio se está enviando, espera un momento...`;
-
-           // await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
-            await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
-            await m.react('✅');
-        } catch (error2) {
-            // Manejo de error final
-            await m.react('✖️');
-            return m.reply(`Ocurrió un error al procesar tu solicitud. Intenta nuevamente más tarde.`);
-        }
+    } catch (error2) {
+        // Manejo de error final
+        await m.react('✖️');
+        return m.reply(`Ocurrió un error al procesar tu solicitud. Intenta nuevamente más tarde.`);
     }
 };
 
