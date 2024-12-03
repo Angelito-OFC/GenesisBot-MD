@@ -23,7 +23,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         // Primera opción: Usar ytmp3 de Starlights
         let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3(videoUrl);
 
-        let img = await (await fetch(thumbnail)).buffer();
+       /* let img = await (await fetch(thumbnail)).buffer();
         let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
                   `✩   *Título* : ${title}\n` +
                   `✩   *Calidad* : ${quality}\n` +
@@ -31,7 +31,19 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                   `>- 🤍 El audio se está enviando, espera un momento...`;
 
         await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
-        await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m }); */
+
+
+       await conn.sendMessage(m.chat, { audio: { url: audio }, mimetype: "audio/mp4", fileName: title + '.mp3', quoted: m, contextInfo: {
+'forwardingScore': 200,
+'isForwarded': true,
+externalAdReply:{
+showAdAttribution: false,
+title: `${title}`,
+body: ``,
+mediaType: 2, 
+sourceUrl: '${canal}',
+thumbnail: await (await fetch(thumbnail)).buffer()}}}, { quoted: m })
         await m.react('✅');
     } catch (error1) {
         try {
