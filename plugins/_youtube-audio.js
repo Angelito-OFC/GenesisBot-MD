@@ -80,10 +80,9 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     }
 };
 
-handler.help = ['ytmp3 <link>'];
-handler.tags = ['downloader'];
-handler.customPrefix = /^(audio|yta|fgmp3)$/i; // Prefijo personalizado para comandos
-handler.command = ['audio', 'yta', 'fgmp3'];
-handler.register = true;
+handler.help = ['A']
+handler.tags = ['downloader']
+handler.customPrefix = /^(a|A)/
+handler.command = new RegExp
 
 export default handler;
