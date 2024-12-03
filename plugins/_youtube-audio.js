@@ -23,8 +23,8 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         // Primera opción: Usar ytmp3 de Starlights
         let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3(videoUrl);
 
-       /* let img = await (await fetch(thumbnail)).buffer();
-        let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
+        let img = await (await fetch(thumbnail)).buffer();
+       /* let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
                   `✩   *Título* : ${title}\n` +
                   `✩   *Calidad* : ${quality}\n` +
                   `✩   *Tamaño* : ${size}\n\n` +
@@ -43,7 +43,7 @@ title: `${title}`,
 body: ``,
 mediaType: 2, 
 sourceUrl: '${canal}',
-thumbnail: await (await fetch(thumbnail)).buffer()}}}, { quoted: m })
+thumbnail: await (await fetch(img)).buffer()}}}, { quoted: m })
         await m.react('✅');
     } catch (error1) {
         try {
