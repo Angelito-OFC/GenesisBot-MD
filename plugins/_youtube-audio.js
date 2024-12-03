@@ -21,7 +21,7 @@ await m.react('✅')
 } catch {
 try {
 let v = urls[0]
-let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3(v)
+let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3v2(v)
 
 if (size.split('MB')[0] >= limit) return m.reply(`El archivo pesa mas de ${limit} MB, se canceló la Descarga.`).then(_ => m.react('✖️'))
 
