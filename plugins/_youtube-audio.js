@@ -18,13 +18,13 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
 
     try {
         let cxf = await Sph.ytdl(videoUrl);
-        let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
+        /* let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
                   `✩   *Título* : ${cxf.title}\n` +
                   `✩   *Calidad* : ${cxf.quality}\n` +
                   `✩   *Url* : ${cxf.url}\n\n` +
                   `>- 🤎 El audio se está enviando, espera un momento...`;
 
-         await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
+         await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m }); */
         await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
         await m.react('✅');
     } catch (error2) {
