@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                   `✩   *Tamaño* : ${size}\n\n` +
                   `>- 🤍 El audio se está enviando, espera un momento...`;
 
-        await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
+       // await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
         await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
         await m.react('✅');
     } catch (error1) {
@@ -43,7 +43,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                       `✩   *Url* : ${cxf.url}\n\n` +
                       `>- 🤎 El audio se está enviando, espera un momento...`;
 
-            await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
+           // await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
             await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
             await m.react('✅');
         } catch (error2) {
