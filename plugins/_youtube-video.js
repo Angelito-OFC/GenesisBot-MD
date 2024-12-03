@@ -1,50 +1,63 @@
-import Starlights from '@StarlightsTeam/Scraper'
-let limit = 300
+/* 
+- YTMP4 By Angel-OFC 
+- https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
+*/
+import { ytmp4 } from 'ruhend-scraper';
+import fetch from 'node-fetch';
+
 let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) => {
-if (!m.quoted) return conn.reply(m.chat, `[ ✰ ] Etiqueta el mensaje que contenga el resultado de YouTube Play.`, m, rcanal).then(_ => m.react('✖️'))
-if (!m.quoted.text.includes("*\`【Y O U T U B E - P L A Y】\`*")) return conn.reply(m.chat, `[ ✰ ] Etiqueta el mensaje que contenga el resultado de YouTube Play.`, m, rcanal).then(_ => m.react('✖️'))
-let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
-if (!urls) return conn.reply(m.chat, `Resultado no Encontrado.`, m, rcanal).then(_ => m.react('✖️'))
-if (urls.length < text) return conn.reply(m.chat, `Resultado no Encontrado.`, m, rcanal).then(_ => m.react('✖️'))
-let user = global.db.data.users[m.sender]
+    if (!m.quoted) {
+        return conn.reply(m.chat, `*\`Etiqueta el mensaje que contenga el resultado del Play.🤍\`*`, m, fake)
+            .then(_ => m.react('✖️'));
+    }
 
-await m.react('🕓')
-try {
-let v = urls[0]
-let { title, duration, size, thumbnail, dl_url } = await Starlights.ytmp4v2(v)
+    if (!m.quoted.text.includes("*\`【Y O U T U B E - P L A Y】\`*")) {
+        return conn.reply(m.chat, `*\`Etiqueta el mensaje que contenga el resultado del Play.🤍\`*`, m, fake)
+            .then(_ => m.react('✖️'));
+    }
 
-if (size.split('MB')[0] >= limit) return conn.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
+    let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'));
 
-await conn.sendFile(m.chat, dl_url, title + '.mp4', `*» Título* : ${title}`, m, false, { asDocument: user.useDocument })
-await m.react('✅')
-} catch {
-try {
-let v = urls[0]
-let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp4(v)
+    if (!urls) {
+        return conn.reply(m.chat, `*\`Resultado no Encontrado.🤍\`*`, m, fake).then(_ => m.react('✖️'));
+    }
 
-if (size.split('MB')[0] >= limit) return m.reply(`El archivo pesa mas de ${limit} MB, se canceló la Descarga.`).then(_ => m.react('✖️'))
+    if (urls.length < parseInt(text)) {
+        return conn.reply(m.chat, `*\`Resultado no Encontrado.🤍\`*`, m, fake).then(_ => m.react('✖️'));
+    }
 
-        let caption = `» *Título:* ${title}\n`;
-        caption += `» *Calidad:* ${quality}\n`;
-        caption += `» *Tamaño:* ${size}\n`;
+    let user = global.db.data.users[m.sender];
+
+    await m.react('🕓');
+    try {
+        let videoUrl = urls[0];
+        let { title, video, author, description, duration, views, upload, thumbnail } = await ytmp4(videoUrl);
+
+        // Formatear el mensaje con los detalles del video
+        let caption = `🎬 *Título:* ${title}\n`;
+        caption += `👤 *Autor:* ${author}\n`;
+        caption += `📝 *Descripción:* ${description}\n`;
+        caption += `⏳ *Duración:* ${duration}\n`;
+        caption += `👁️ *Vistas:* ${views}\n`;
+        caption += `📅 *Subido:* ${upload}`;
 
         // Enviar el video al usuario
         await conn.sendMessage(m.chat, { 
-            video: { url: dl_url }, 
+            video: { url: video }, 
             caption: caption, 
             mimetype: 'video/mp4' 
         }, { quoted: m });
 
+        await m.react('✅');
+    } catch (e) {
+        console.error(e);
+        await conn.reply(m.chat, `*\`Hubo un error al procesar la descarga.🤍\`*`, m, fake).then(_ => m.react('✖️'));
+    }
+};
 
-/* await conn.sendFile(m.chat, dl_url, title + '.mp4', `*» Título* : ${title}\n*» Calidad* : ${quality}`, m, false, { asDocument: user.useDocument }) */
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}}
-handler.help = ['V']
-handler.tags = ['downloader']
-handler.customPrefix = /^(V|v)/
-handler.command = new RegExp
-//handler.limit = 1
+handler.help = ['video'];
+handler.tags = ['downloader'];
+handler.customPrefix = /^(Video|video)/;
+handler.command = new RegExp;
 
-export default handler
+export default handler;
