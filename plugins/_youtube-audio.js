@@ -30,8 +30,10 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
         }
 
         // Extraer información del resultado
-        let { title, author, thumbnail, url: audioUrl } = vid.result;
+        let { title, author, thumbnail, audio } = vid.result;
+        let audioUrl = audio; // En el caso de que audio ya sea directamente la URL
 
+        // Enviar mensaje con el audio
         await conn.sendMessage(m.chat, {
             audio: { url: audioUrl },
             mimetype: "audio/mp4",
