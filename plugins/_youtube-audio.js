@@ -42,7 +42,7 @@ showAdAttribution: false,
 title: `${title}`,
 body: ``,
 mediaType: 2, 
-sourceUrl: '${canal}',
+sourceUrl: '',
 thumbnail: await (await fetch(img)).buffer()}}}, { quoted: m })
         await m.react('✅');
     } catch (error1) {
