@@ -3,7 +3,9 @@ import Sph from 'ytdl-mp3';
 
 let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) => {
     if (!m.quoted) return conn.reply(m.chat, `[ ✰ ] Etiqueta el mensaje que contenga el resultado de YouTube Play.`, m).then(() => m.react('✖️'));
-    if (!m.quoted.text.includes("*`【Y O U T U B E - P L A Y】`*"))
+    if (!m.quoted.text.includes("*`【Y O U T U B E - P L A Y】`*")) {
+        return conn.reply(m.chat, `[ ✰ ] Etiqueta el mensaje que contenga el resultado de YouTube Play.`, m).then(() => m.react('✖️'));
+    }
 
     let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9_-]+)/, 'gi'));
     if (!urls) return conn.reply(m.chat, `Resultado no encontrado.`, m).then(() => m.react('✖️'));
@@ -33,7 +35,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
 
 handler.help = ['A'];
 handler.tags = ['downloader'];
-handler.customPrefix = /^(A|a)/;
+handler.customPrefix = /^(a|A)/; // Prefijo personalizado
 handler.command = new RegExp();
 
 export default handler;
