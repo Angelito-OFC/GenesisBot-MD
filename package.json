@@ -47,7 +47,7 @@
 		"aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 		"neastooapi": "^1.0.2",
 		"@sl-code-lords/youtube-dl": "^1.0.4",
-		"api-dylux": "^1.8.5",
+		"api-dylux": "^1.7.2",
 		"canvacard": "^6.0.3",
 		"canvafy": "^7.2.0",
 		"ruhend-scraper": "^8.0.4",
