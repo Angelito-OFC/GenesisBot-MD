@@ -34,7 +34,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                   `✩   *Título* : ${title}\n` +
                   `✩   *Duración* : ${duration}\n` +
                   `✩   *Tamaño* : ${size}\n\n` +
-                  `>- ↻ El audio se está enviando, espera un momento...`;
+                  `>- 🐽 El audio se está enviando, espera un momento...`;
 
         await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
         await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
@@ -53,7 +53,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                       `✩   *Título* : ${title}\n` +
                       `✩   *Calidad* : ${quality}\n` +
                       `✩   *Tamaño* : ${size}\n\n` +
-                      `>- ↻ El audio se está enviando, espera un momento...`;
+                      `>- 🤍 El audio se está enviando, espera un momento...`;
 
             await conn.sendMessage(m.chat, { image: img, caption: txt }, { quoted: m });
             await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
@@ -66,7 +66,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
                           `✩   *Título* : ${cxf.title}\n` +
                           `✩   *Calidad* : ${cxf.quality}\n` +
                           `✩   *Url* : ${cxf.url}\n\n` +
-                          `>- ↻ El audio se está enviando, espera un momento...`;
+                          `>- 🤎 El audio se está enviando, espera un momento...`;
 
                 await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
                 await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
