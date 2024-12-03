@@ -2,8 +2,6 @@ import Starlights from '@StarlightsTeam/Scraper';
 import fetch from 'node-fetch';
 import Sph from 'ytdl-mp3';
 
-const limit = 100;
-
 let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) => {
     // Verificar si el mensaje citado existe y contiene el resultado de "YouTube Play"
     if (!m.quoted) return conn.reply(m.chat, `[ ✰ ] Etiqueta el mensaje que contenga el resultado de YouTube Play.`, m).then(() => m.react('✖️'));
@@ -24,10 +22,6 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     try {
         // Primera opción: Usar ytmp3 de Starlights
         let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp3(videoUrl);
-
-        if (parseFloat(size.split('MB')[0]) >= limit) {
-            return conn.reply(m.chat, `El archivo pesa más de ${limit} MB, se canceló la descarga.`, m).then(() => m.react('✖️'));
-        }
 
         let img = await (await fetch(thumbnail)).buffer();
         let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
@@ -66,6 +60,7 @@ handler.customPrefix = /^(a|A)/; // Prefijo personalizado
 handler.command = new RegExp();
 
 export default handler;
+
 
 
 
