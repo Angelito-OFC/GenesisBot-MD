@@ -49,14 +49,25 @@ thumbnail: await (await fetch(thumbnail)).buffer()}}}, { quoted: m })
         try {
             // Segunda opción: Usar ytdl-mp3
             let cxf = await Sph.ytdl(videoUrl);
-            let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
+           /* let txt = `\`乂  Y O U T U B E  -  M P 3\`\n\n` +
                       `✩   *Título* : ${cxf.title}\n` +
                       `✩   *Calidad* : ${cxf.quality}\n` +
                       `✩   *Url* : ${cxf.url}\n\n` +
                       `>- 🤎 El audio se está enviando, espera un momento...`;
 
             await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
-            await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
+            await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m }); */
+
+       await conn.sendMessage(m.chat, { audio: { url: audio }, mimetype: "audio/mp4", fileName: title + '.mp3', quoted: m, contextInfo: {
+'forwardingScore': 200,
+'isForwarded': true,
+externalAdReply:{
+showAdAttribution: false,
+title: `${title}`,
+body: ' ',
+mediaType: 2, 
+sourceUrl: '${canal}',
+thumbnail: await (await fetch(cxf.thumbnail)).buffer()}}}, { quoted: m })
             await m.react('✅');
         } catch (error2) {
             // Manejo de error final
