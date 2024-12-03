@@ -29,7 +29,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
 
          await conn.sendMessage(m.chat, { image: { url: cxf.thumbnail }, caption: txt }, { quoted: m });
         await conn.sendMessage(m.chat, { audio: { url: cxf.dl_url }, fileName: `${cxf.title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m });
-        await m.react('✅');
+        await m.react('💯');
     } catch (error2) {
         // Manejo de error final
         await m.react('✖️');
