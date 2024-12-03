@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     if (urls.length < text) return conn.reply(m.chat, `Resultado no encontrado.`, m).then(() => m.react('✖️'));
 
     let user = global.db.data.users[m.sender];
-    let videoUrl = urls[0]; // Tomar el primer URL encontrado
+    let videoUrl = urls[0];
 
     await m.react('🕓');
 
