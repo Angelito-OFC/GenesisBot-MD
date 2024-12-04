@@ -77,14 +77,3 @@ async function getBuffer(url) {
     return null;
   }
 }
-/*
-*<>TERABOXDL, DOSA TANGGUNG SENDIRI!!<>*
-SOURCE: https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
-SCRAPE BY SYAII:  https://whatsapp.com/channel/0029VaezPea1t90dvAkhNg3k/301
-DON'T DELETE THIS WM!
-HAPUS WM MANDUL 7 TURUNAN 
-HAPUS WM=SDM RENDAH 
-*KALO LU CONVERT APAPUN FITUR INI,WM JANGAN DIHAPUS!*
-"aku janji tidak akan hapus wm ini"
-SELASA, 03 NOVEMBER 20:16
-*/
