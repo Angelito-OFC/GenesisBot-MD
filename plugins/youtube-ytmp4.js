@@ -18,9 +18,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     m.reply('error al descargar el archivo.');
   }
 };
-handler.help = ["teraboxdl *<url>*"];
+handler.help = ["terabox *<url>*"];
 handler.tags = ["downloader"];
-handler.command = ["teraboxdl"];
+handler.command = ["terabox"];
 
 export default handler;
 
