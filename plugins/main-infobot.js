@@ -86,7 +86,7 @@ let handler = async (m, { conn, usedPrefix }) => {
        txt += `> 🚩 ${textbot}`
 
 let img = `./storage/img/menu.jpg`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, fake)
 }
 handler.help = ['info']
 handler.tags = ['main']
