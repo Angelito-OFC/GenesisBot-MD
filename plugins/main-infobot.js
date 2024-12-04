@@ -71,7 +71,7 @@ let handler = async (m, { conn, usedPrefix }) => {
        txt += `┊ ‹‹ *Status De* :: *Ai Hoshino ดาว⁩*\n`
        txt += `┊•*⁀➷ °⭒⭒⭒ *【 ✯ Starlights Team ✰ 】*\n`
        txt += `╰─── ︶︶︶︶ ✰⃕  ⌇ *⭒ ⭒ ⭒*   ˚̩̥̩̥*̩̩͙✩\n`
-       txt += `┊🪴 [ *Moneda* :: *Estrellas ⭐*\n`
+       txt += `┊🪴 [ *Moneda* :: *Corazones 🤍*\n`
        txt += `┊🍟 [ *Prefijo* :: *【  ${usedPrefix}  】*\n`
        txt += `┊✨ [ *Plugins* :: *${totalf}*\n`
        txt += `┊☁️ [ *Sub-Bots* :: *${totalUsers || '0'}*\n`
