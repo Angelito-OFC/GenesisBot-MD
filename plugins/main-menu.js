@@ -197,4 +197,4 @@ switch(hour){
   case 22: hour = 'Buenas noches 🌙'; break;
   case 23: hour = 'Buenas noches 🌃'; break;
 }
-  var greeting = "espero que tengas " + hour;
+  var greeting = "" + hour;
