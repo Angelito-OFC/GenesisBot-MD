@@ -1,17 +1,14 @@
 import axios from 'axios';
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) return m.reply(`Gunakan perintah:\n${usedPrefix + command} <link terabox>`);
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+  if (!text) return m.reply(`Gunakan perintah:\n${usedPrefix + command} https://terabox.com/s/1kReYr_2pyxLZ2c2kEAHF3A`);
   try {
     const result = await terabox(text);
     if (!result.length) return m.reply('gagal mendapatkan file. Pastikan link valid.');
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+
     for (let i = 0; i < result.length; i++) {
       const { fileName, type, thumb, url } = result[i];
-      const caption = `📄 *Nama File:* ${fileName}\n📂 *Tipe:* ${type}`;
+      const caption = `📄 *Nombre File:* ${fileName}\n📂 *Formato:* ${type}`;
       
-      //wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
       await conn.sendFile(m.chat, url, fileName, caption, m, false, {
         thumbnail: thumb ? await getBuffer(thumb) : null
       });
@@ -21,8 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     m.reply('Terjadi kesalahan saat memproses permintaan Anda.');
   }
 };
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
-handler.help = ["teraboxdl"];
+handler.help = ["teraboxdl *<url>*"];
 handler.tags = ["downloader"];
 handler.command = ["teraboxdl"];
 
