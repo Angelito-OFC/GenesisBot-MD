@@ -26,7 +26,6 @@ handler.command = ["terabox"];
 
 export default handler;
 
-//SCRAPE BY SYAII: https://whatsapp.com/channel/0029VaezPea1t90dvAkhNg3k/301
 async function terabox(url) {
   return new Promise(async (resolve, reject) => {
     await axios
