@@ -27,8 +27,7 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `*%greeting \`%name\`*
-
+  before: `*%greeting \`%name\`*
 ➫ _\`ᴀᴄᴛɪᴠᴏ\`_ :: _%muptime_
 ➫ _\`ᴜꜱᴜᴀʀɪᴏꜱ\`_ :: _%rtotalreg de %totalreg_
 ➫ _\`ᴄᴏʀᴀᴢᴏɴᴇꜱ\`_ :: _%corazones_
