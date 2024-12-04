@@ -298,8 +298,8 @@ process.on('uncaughtException', console.error)
 let isInit = true;
 let handler = await import('../system/handler.js')
 global.reloadHandler = async function(restatConn) {
-  /*try {
-    const Handler = await import(`../system/handler.js?update=${Date.now()}`).catch(console.error);*/
+  try {
+    const Handler = await import(`../system/handler.js?update=${Date.now()}`).catch(console.error);
     if (Object.keys(Handler || {}).length) handler = Handler
   } catch (e) {
     console.error(e);
