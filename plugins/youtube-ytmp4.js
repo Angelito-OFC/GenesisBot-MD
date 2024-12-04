@@ -1,9 +1,9 @@
 import axios from 'axios';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) return m.reply(`Gunakan perintah:\n${usedPrefix + command} https://terabox.com/s/1kReYr_2pyxLZ2c2kEAHF3A`);
+  if (!text) return m.reply(`Ejemplo:\n${usedPrefix + command} https://terabox.com/s/1kReYr_2pyxLZ2c2kEAHF3A`);
   try {
     const result = await terabox(text);
-    if (!result.length) return m.reply('gagal mendapatkan file. Pastikan link valid.');
+    if (!result.length) return m.reply('ingresa un url válido.');
 
     for (let i = 0; i < result.length; i++) {
       const { fileName, type, thumb, url } = result[i];
@@ -15,7 +15,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
   } catch (err) {
     console.error(err);
-    m.reply('Terjadi kesalahan saat memproses permintaan Anda.');
+    m.reply('error al descargar el archivo.');
   }
 };
 handler.help = ["teraboxdl *<url>*"];
