@@ -22,7 +22,7 @@ global.fcontact = {
     };
 
     try {
-        if (!text) return m.reply(`${mssg.avisoGene4}\n\n*INGRESA EL ENLACE*\n_.mega <link>_`);
+        if (!text) return m.reply(`*INGRESA EL ENLACE*\n_.mega <link>_`);
 
         const file = File.fromURL(text);
         await file.loadAttributes();
