@@ -1,3 +1,7 @@
+/* 
+- Downloader Terabox By Angel-OFC 
+- https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
+*/
 import axios from 'axios';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) return m.reply(`Ejemplo:\n${usedPrefix + command} https://terabox.com/s/1kReYr_2pyxLZ2c2kEAHF3A`);
