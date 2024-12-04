@@ -1,4 +1,7 @@
-//código adaptado por GitHub: @Angelito-OFC
+/* 
+- Downloader Mega By Angel-OFC 
+- https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
+*/
 import { File } from "megajs";
 import path from "path";
 
@@ -28,7 +31,7 @@ global.fcontact = {
 
     await conn.reply(m.chat, '🐈‍⬛ `𝗖𝗔𝗥𝗚𝗔𝗡𝗗𝗢....`', fcontact);
 
-        const caption = `🐈‍⬛ 𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖 𝙚𝙭𝙞𝙩𝙤𝙨𝙖....\n\n» 𝙉𝙤𝙢𝙗𝙧𝙚: ${file.name}\n» 𝙋𝙚𝙨𝙤: ${formatBytes(file.size)}\n» 𝙁𝙚𝙘𝙝𝙖: ${fecha}`;
+        const caption = `*\`DOWNLOADER MEGA\`*\n\n» Nombre: ${file.name}\n» Peso: ${formatBytes(file.size)}\n» Fecha: ${fecha}`;
 
         const data = await file.downloadBuffer();
 
