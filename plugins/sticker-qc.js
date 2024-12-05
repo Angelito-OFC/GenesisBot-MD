@@ -35,7 +35,7 @@ let handler = async (m, { conn, text }) => {
    })
    const buffer = Buffer.from(json.data.result.image, 'base64')
    let stick = await sticker(buffer, false, packname, author)
-   await await conn.sendFile(m.chat, stick, 'sticker.webp', '', m)
+   await await conn.sendFile(m.chat, stick, 'sticker.webp', '', m, null, rpl)
    await m.react('✅')
 } catch {
 await m.react('✖️')
