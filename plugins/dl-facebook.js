@@ -1,18 +1,49 @@
-import Starlights from '@StarlightsTeam/Scraper'
+import axios from 'axios'
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-if (!args || !args[0]) return conn.reply(m.chat, '🚩 Ingresa el enlace del vídeo de Facebook junto al comando.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* https://www.facebook.com/official.trash.gang/videos/873759786348039/?mibextid=rS40aB7S9Ucbxw6v`, m, rcanal)
-await m.react('🕓')
-try {
-let { dl_url } = await Starlights.fbdl(args[0])
-await conn.sendFile(m.chat, dl_url, 'fbdl.mp4', listo, m, null, rcanal)
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}
-handler.help = ['fb *<link fb>*']
-handler.tags = ['downloader'] 
-handler.command = /^(facebook|fb|facebookdl|fbdl)$/i
-//handler.limit = 1
+let handler = async (m, { conn, args }) => {
+    if (!args[0]) throw m.reply('Ingresa el link de Facebook');
+    const sender = m.sender.split('@')[0];
+    const url = args[0];
+
+    m.reply(wait);
+
+    try {
+        const { data } = await axios.get(`https://api.ryzendesu.vip/api/downloader/fbdl?url=${encodeURIComponent(url)}`);
+
+        if (!data.status || !data.data || data.data.length === 0) throw m.reply('Error');
+
+        // Prioritize 720p (HD) and fallback to 360p (SD)
+        let video = data.data.find(v => v.resolution === '720p (HD)') || data.data.find(v => v.resolution === '360p (SD)');
+        
+        if (video && video.url) {
+            const videoBuffer = await axios.get(video.url, { responseType: 'arraybuffer' }).then(res => res.data);
+            const caption = `✧ Para: @${sender}`;
+
+            await conn.sendMessage(
+                m.chat, {
+                video: videoBuffer,
+                mimetype: "video/mp4",
+                fileName: `video.mp4`,
+                caption: caption,
+                mentions: [m.sender],
+            }, {
+                quoted: m
+            }
+            );
+        } else {
+            throw m.reply('Error');
+        }
+    } catch (error) {
+        console.error('Handler Error:', error);
+        conn.reply(m.chat, `Error: ${error}`, m);
+    }
+}
+
+handler.help = ['fb <link>']
+handler.tags = ['dl']
+handler.command = /^(fbdownload|facebook|fb(dl)?)$/i
+
+handler.limit = true
 handler.register = true
+
 export default handler
