@@ -38,7 +38,7 @@ global.titulowm = '-❀ᩙ̈͟༚̮ ⡞᪲=͟͟͞🄶𝚎᪶۫۫𝚗᪶۫۫𝚎�
 global.titulowm2 = '.‧·ீ੭ ¡ ᗃᮢ፝֟͡Gᴇɴᴇsɪs B۵ᴛ ʟᴀ ᴍᴇᴊ꧔ʀ !˚̩̩̥͙°̩̥༅˚'
 global.igfg = '@usxr_angelito0'
 global.botname = '  ᩠ ꣣ʹ͚〃Ǥ℮ภэડเธ λ𝕚  ·ꗏฺ̇·.•۟'
-global.dev = '_© Reserved | Genesis AI *2024*_'
+global.dev = '_© Reserved | Genesis AI *2024*_\n'
 global.titu = '©️ ρσωε૨ ɓყ ɠαℓαאყ ƭεαɱ'
 global.textbot = 'ɢᴇɴᴇꜱɪꜱʙᴏᴛ x ᴀɴɢᴇʟ-ᴏꜰᴄ 🤍'
 global.listo = '*Aqui tiene ฅ^•ﻌ•^ฅ*'
