@@ -64,7 +64,7 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
     }
 }
 handler.help = ['ytmp3doc *<link yt>*']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['ytmp3doc', 'ytadoc']
 handler.register = true
 
