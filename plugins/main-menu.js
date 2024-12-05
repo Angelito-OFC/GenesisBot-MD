@@ -5,7 +5,7 @@ import moment from 'moment-timezone'
 import os from 'os'
 import fs from 'fs'
 import fetch from 'node-fetch'
-const { generateWAMessageFromContent, proto, getDevice } = (await import('@adiwajshing/baileys')).default
+const { generateWAMessageFromContent, proto, getDevice } = (await import('@whiskeysockets/baileys')).default
 let estilo = (text, style = 1) => {
   var xStr = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
   var yStr = Object.freeze({
