@@ -1,49 +1,49 @@
-import axios from 'axios'
+ import { igdl } from 'ruhend-scraper';
 
-let handler = async (m, { conn, args }) => {
-    if (!args[0]) throw m.reply('Ingresa el link de Facebook');
-    const sender = m.sender.split('@')[0];
-    const url = args[0];
+const handler = async (m, { text, conn, args, usedPrefix, command }) => {
+  if (!args[0]) {
+    return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, fake);
+  }
 
-    m.reply(wait);
+  await m.react('🕒');
+  let res;
+  try {
+    res = await igdl(args[0]);
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al obtener datos. Verifica el enlace.`*', m);
+  }
 
-    try {
-        const { data } = await axios.get(`https://api.ryzendesu.vip/api/downloader/fbdl?url=${encodeURIComponent(url)}`);
+  let result = res.data;
+  if (!result || result.length === 0) {
+    return conn.reply(m.chat, '*`No se encontraron resultados.`*', m);
+  }
 
-        if (!data.status || !data.data || data.data.length === 0) throw m.reply('Error');
+  let data;
+  try {
+    data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)");
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al procesar los datos.`*', m);
+  }
 
-        // Prioritize 720p (HD) and fallback to 360p (SD)
-        let video = data.data.find(v => v.resolution === '720p (HD)') || data.data.find(v => v.resolution === '360p (SD)');
-        
-        if (video && video.url) {
-            const videoBuffer = await axios.get(video.url, { responseType: 'arraybuffer' }).then(res => res.data);
-            const caption = `✧ Para: @${sender}`;
+  if (!data) {
+    return conn.reply(m.chat, '*`No se encontró una resolución adecuada.`*', m);
+  }
 
-            await conn.sendMessage(
-                m.chat, {
-                video: videoBuffer,
-                mimetype: "video/mp4",
-                fileName: `video.mp4`,
-                caption: caption,
-                mentions: [m.sender],
-            }, {
-                quoted: m
-            }
-            );
-        } else {
-            throw m.reply('Error');
-        }
-    } catch (error) {
-        console.error('Handler Error:', error);
-        conn.reply(m.chat, `Error: ${error}`, m);
-    }
-}
+  await m.react('✅');
+  let video = data.url;
+  
+  try {
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: dev, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al enviar el video.`*', m);
+  await m.react('❌');
+  }
+};
 
-handler.help = ['fb <link>']
+handler.help = ['fb *<link>*'];
+handler.corazones = 2
 handler.tags = ['dl']
-handler.command = /^(fbdownload|facebook|fb(dl)?)$/i
-
-handler.limit = true
+handler.command = /^(fb|facebook|fbdl)$/i;
 handler.register = true
 
-export default handler
+export default handler;                                                                                                                                                                                                                                          
