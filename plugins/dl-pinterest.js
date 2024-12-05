@@ -23,7 +23,7 @@ await m.react('✖️');
 };
 
 handler.help = ['pinterestdl *<url pin>*'];
-handler.tags = ['downloader'];
+handler.tags = ['dl'];
 handler.command = ['pinterestdl', 'pindl'];
 handler.register = true;
 
