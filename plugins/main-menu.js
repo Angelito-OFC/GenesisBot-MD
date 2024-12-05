@@ -25,7 +25,7 @@ let estilo = (text, style = 1) => {
   return output.join('');
 };
 const defaultMenu = {
-  before: `*Hola*\`%name\` *Soy Genesis ${ucapan()}*
+  before: `*${ucapan()} \`%name\`*
 
 ➫ _\`ᴀᴄᴛɪᴠᴏ\`_ :: _%muptime_
 ➫ _\`ᴜꜱᴜᴀʀɪᴏꜱ\`_ :: _%rtotalreg de %totalreg_
