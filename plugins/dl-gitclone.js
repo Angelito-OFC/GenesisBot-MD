@@ -38,7 +38,7 @@ await m.react('✖️')
   }
 }
 handler.help = ['gitclone *<url git>*']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(gitclone)$/i
 handler.register = true 
 //handler.star = 1
