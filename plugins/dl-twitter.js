@@ -1,5 +1,3 @@
-`TWITTER DESCARGAS IMG/VIDEO`
-
 /* 
 - Twitter Downloader By Angel-OFC 
 - https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
