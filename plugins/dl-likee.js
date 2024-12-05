@@ -14,7 +14,7 @@ await m.react('✅')
 await m.react('✖️')
 }}
 handler.help = ['likeedl *<url>*']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(likeedl)$/i
 handler.register = true
 export default handler
