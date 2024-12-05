@@ -44,17 +44,18 @@ const defaultMenu = {
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 
   let tags = {
-    'ai': 'ꜰᴜɴᴄɪᴏɴᴇꜱ ᴀɪ',
-    'search': 'ʙᴜꜱQᴜᴇᴅᴀ',
-    'dl': 'ᴅᴇꜱᴄᴀʀɢᴀꜱ',
-    'tools': 'ʜᴇʀʀᴀᴍɪᴇɴᴛᴀꜱ',
     'main': 'ᴘʀɪɴᴄɪᴘᴀʟ',
+    'search': 'ʙᴜꜱQᴜᴇᴅᴀ',
+    'rpg': 'ʀᴏʟᴇᴘʟᴀʏ',
+    'start': 'ꜱᴛᴀʀᴛ',
+    'sticker': 'ꜱᴛɪᴄᴋᴇʀ',
+    'dl': 'ᴅᴇꜱᴄᴀʀɢᴀꜱ',
+    'ai': 'ꜰᴜɴᴄɪᴏɴᴇꜱ ᴀɪ',
+    'tools': 'ʜᴇʀʀᴀᴍɪᴇɴᴛᴀꜱ',
     'anonymous': 'ᴄʜᴀᴛ ᴀɴᴏɴɪᴍᴏ',
     'confesar': 'ᴄᴏɴꜰᴇᴄɪᴏɴᴇꜱ',
-    'rpg': 'ʀᴏʟᴇᴘʟᴀʏ',
     'internet': 'ɪɴᴛᴇʀɴᴇᴛ',
     'anime': 'ᴀɴɪᴍᴇ',
-    'sticker': 'ꜱᴛɪᴄᴋᴇʀ',
     'group': 'ɢʀᴜᴘᴏꜱ',
     'owner': 'ᴏᴡɴᴇʀ',
   }
