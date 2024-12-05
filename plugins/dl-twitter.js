@@ -46,6 +46,6 @@ const handler = async (m, {conn, text, usedPrefix, command, args}) => {
 };
 
 handler.help = ['twitter <url>']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(x|twt|twitter(dl)?)$/i
 export default handler;
