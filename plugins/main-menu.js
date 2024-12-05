@@ -36,7 +36,6 @@ const defaultMenu = {
 ➫ _\`ᴘᴀᴛʀᴏᴄɪɴᴀᴅᴏʀ\`_ :: _Tk-Host_
 
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
- %readmore
 `.trimStart(),
   header: '╭─(❀)❝┊ *_`%category`_* ┊❝(❀',
     body: '┊➫ %cmd %islimit %isPremium\n',
