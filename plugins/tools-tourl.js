@@ -19,14 +19,14 @@ let handler = async (m, { conn }) => {
   formData.append('files[]', media, { filename: q.filename || 'file' });
 
   try {
-    // Llama a la API de pomf2.lain.la
+    // Subir archivo a la página pomf2.lain.la
     let api = await axios.post('https://pomf2.lain.la/upload.php', formData, {
       headers: {
         ...formData.getHeaders(),
       },
     });
 
-    // Verifica si la respuesta contiene la URL del archivo subido
+    // Procesar respuesta
     if (api.data && api.data.files && api.data.files[0]) {
       let uploadedFile = api.data.files[0];
       let txt = `*Pomf2 Uploader*\n\n`;
