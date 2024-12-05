@@ -2,9 +2,7 @@ import fetch from 'node-fetch'
 import ffmpeg from "fluent-ffmpeg"
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) {
-        throw m.reply(`*✧ Ejemplo: ${usedPrefix + command
-        } https://vm.tiktok.com/ZMhAk8tLx/`);
+ if (!args || !args[0]) return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, fake, );
     }
 
     try {
