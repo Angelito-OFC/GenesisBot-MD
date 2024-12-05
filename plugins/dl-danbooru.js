@@ -11,7 +11,7 @@ await m.react('✅')
 await m.react('✖️')
 }}
 handler.help = ['danbooru *<url>*']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['danbooru']
 //handler.limit = 1
 handler.register = true 
