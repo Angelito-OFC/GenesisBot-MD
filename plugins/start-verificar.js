@@ -38,7 +38,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 }
 
 handler.help = ['reg'].map(v => v + ' *<nombre.edad>*')
-handler.tags = ['rg']
+handler.tags = ['start']
 handler.command = ['verify', 'reg', 'register', 'registrar']
 
 export default handler
