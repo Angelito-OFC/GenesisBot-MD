@@ -1,69 +1,53 @@
-import fs from "fs"
-import fetch from "node-fetch"
-import FormData from "form-data"
-import { uploadPomf } from '../lib/uploadImage.js'
-const { proto, generateWAMessageFromContent } = (await import('@whiskeysockets/baileys')).default;
+import fs from 'fs';
+import FormData from 'form-data';
+import axios from 'axios';
 
+let handler = async (m, { conn }) => {
+  let q = m.quoted ? m.quoted : m;
+  let mime = (q.msg || q).mimetype || '';
 
-let handler = async m => {
-  try {
-    const q = m.quoted || m
-    const mime = q.mediaType || ""    
-    if (!/image|video|audio|sticker|document/.test(mime)) 
-      throw m.reply("✧ No hay medios marcados!")
-          await conn.sendMessage(m.chat, { react: { text: '🔗', key: m.key } });
-    const media = await q.download(true)
-    let media2 = await q.download()
-    const fileSizeInBytes = fs.statSync(media).size    
-    if (fileSizeInBytes === 0) {
-      await m.reply("Archivo vacio")
-      await fs.promises.unlink(media)
-      return
-    }   
-    if (fileSizeInBytes > 1073741824) {
-      await m.reply("El archivo superó 1 GB")
-      await fs.promises.unlink(media)
-      return
-    }    
-    const { files } = await uploadUguu(media)
-    let url = await uploadPomf(media2)
-    const caption = `\`T O U R L - U P L O A D\`
-
-✧Uguu Link:
-${files[0]?.url}
-
-✧Pomf2 Link:
-${url}
-
-${wm}`
-    m.reply(caption)
-    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
-//    await m.reply(caption)
-  } catch (e) {
-//    await m.reply(`${e}`)
-    await conn.sendMessage(m.chat, { react: { text: '❎', key: m.key } });
+  // Verifica si es imagen o video
+  if (!mime.startsWith('image/') && !mime.startsWith('video/')) {
+    return m.reply('Responde a una *Imagen o Video.*');
   }
-}
 
-handler.help = ["tourl"]
-handler.tags = ["tools"]
-handler.command = /^(tourl)$/i
-export default handler
+  await m.react('✅');
 
-async function uploadUguu(path) {
+  // Descarga el archivo adjunto
+  let media = await q.download();
+  let formData = new FormData();
+  formData.append('files[]', media, { filename: 'file' });
+
+  // Llama a la API de pomf2.lain.la
   try {
-    const form = new FormData()
-    form.append("files[]", fs.createReadStream(path))   
-    const res = await fetch("https://uguu.se/upload.php", {
-      method: "POST",
-      headers: form.getHeaders(),
-      body: form
-    })    
-    const json = await res.json()
-    await fs.promises.unlink(path)   
-    return json
-  } catch (e) {
-    await fs.promises.unlink(path)
-    throw "Error"
+    let api = await axios.post('https://pomf2.lain.la/upload.php', formData, {
+      headers: {
+        ...formData.getHeaders(),
+      },
+    });
+
+    // Verifica si la respuesta contiene la URL del archivo subido
+    if (api.data && api.data.files && api.data.files[0]) {
+      let uploadedFile = api.data.files[0];
+      let txt = `*Pomf2 Uploader*\n\n`;
+      txt += `» *Nombre*: ${uploadedFile.name || 'desconocido'}\n`;
+      txt += `» *Tamaño*: ${uploadedFile.size} bytes\n`;
+      txt += `» *Enlace*: ${uploadedFile.url}\n\n`;
+      txt += `© By: Genesis`;
+
+      await conn.sendFile(m.chat, uploadedFile.url, uploadedFile.name, txt, m);
+      await m.react('✅');
+    } else {
+      m.reply('Error al subir el archivo.');
+    }
+  } catch (err) {
+    console.error(err);
+    m.reply('Hubo un error al intentar subir el archivo.');
   }
-}
+};
+
+handler.tags = ['convertir'];
+handler.help = ['tourl'];
+handler.command = /^(tourl|topomf)$/i;
+handler.register = true;
+export default handler;
