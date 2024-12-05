@@ -41,10 +41,7 @@ await m.react('✅')
 } catch {
 await m.react('✖️')
 }}}
-handler.help = ['V']
-handler.tags = ['downloader']
 handler.customPrefix = /^(V|v)/
 handler.command = new RegExp
-//handler.limit = 1
 
 export default handler
