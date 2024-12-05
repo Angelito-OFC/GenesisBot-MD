@@ -108,7 +108,7 @@ global.fake = {
         mediaType: 'VIDEO',
         description: 'support group',
         title: packname,
-        body: 'grupo de soporte',
+        body: '¡Génesis la Mejor! 🤍',
         thumbnailUrl: pp,
         sourceUrl: bgp
       }
