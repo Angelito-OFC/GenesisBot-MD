@@ -109,8 +109,8 @@ global.fake = {
         description: '¡Génesis la Mejor! 🤍',
         title: wm,
         body: 'team starcore',
-        thumbnailUrl: pp,
-        sourceUrl: bgp
+        thumbnailUrl: icono,
+        sourceUrl: grupos
       }
     }
   };
