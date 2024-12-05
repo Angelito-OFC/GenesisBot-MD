@@ -43,10 +43,6 @@ const defaultMenu = {
   }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 
-  if (m.isGroup && !global.db.data.chats[m.chat].menu) {
-    throw `El administrador ha desactivado el menú`;
-  }
-
   let tags = {
     'ai': 'ꜰᴜɴᴄɪᴏɴᴇꜱ ᴀɪ',
     'search': 'ʙᴜꜱQᴜᴇᴅᴀ',
