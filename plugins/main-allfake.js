@@ -99,16 +99,16 @@ global.fake = {
     contextInfo: {
             isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: id_canal,
+      newsletterJid: "120363220939514640@newsletter",
       serverMessageId: 100,
-      newsletterName: nam,
+      newsletterName: '𝑮𝒆𝒏𝒆𝒔𝒊𝒔-𝑰𝑨 - 𝑪𝒉𝒂𝒏𝒏𝒆𝒍',
     }, 
       externalAdReply: {
         mediaUrl: grupos,
         mediaType: 'VIDEO',
-        description: 'support group',
-        title: packname,
-        body: '¡Génesis la Mejor! 🤍',
+        description: '¡Génesis la Mejor! 🤍',
+        title: wm,
+        body: 'team starcore',
         thumbnailUrl: pp,
         sourceUrl: bgp
       }
