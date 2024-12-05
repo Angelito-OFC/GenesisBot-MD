@@ -1,26 +1,19 @@
-import Starlights from "@StarlightsTeam/Scraper"
-
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) return conn.reply(m.chat, '[ ✰ ] Ingresa el nombre de la aplicación que deseas descargar de *Aptoide* junto al comando.\n\n`» Ejemplo :`\n' + `> *${usedPrefix + command}* WhatsApp`, m, rcanal)
-await m.react('🕓')
-try {
-let { name, version, amount_downloads, size, thumbnail, dl_url } = await Starlights.aptoide(text)
-if (size.includes('GB') || size.replace(' MB', '') > 300) { return await m.reply('El archivo pesa mas de 300 MB, se canceló la Descarga.')}
-let txt = `*乂  A P T O I D E  -  D O W N L O A D*\n\n`
-    txt += `	✩   *Nombre* : ${name}\n`
-    txt += `	✩   *Version* : ${version}\n`
-    txt += `	✩   *Descargas* : ${amount_downloads}\n`
-    txt += `	✩   *Peso* :  ${size}\n\n`
-    txt += `*- ↻ El archivo se esta enviando espera un momento, soy lenta. . .*`
-await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', txt, m, null, rcanal)
-await conn.sendMessage(m.chat, {document: { url: dl_url }, mimetype: 'application/vnd.android.package-archive', fileName: name + '.apk', caption: null }, {quoted: m})
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}
-handler.help = ['aptoide *<búsqueda>*']
-handler.tags = ['downloader']
-handler.command = ['aptoide', 'apk']
-handler.register = true 
-//handler.limit = 5
-export default handler
+import {search, download} from 'aptoide-scraper';
+const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
+ if (!text) throw conn.reply(m.chat, '*\`Ingrese el nombre de la APK que quiera buscar. 🤍\`*', m, fake, )
+  try {    
+    const searchA = await search(text);
+    const data5 = await download(searchA[0].id);
+    let response = `📲 *Descargador de Aptoide* 📲\n\n📌 *Nombre:* ${data5.name}\n📦 *Package:* ${data5.package}\n🕒 *Última actualización:* ${data5.lastup}\n📥 *Tamaño:* ${data5.size}`
+await conn.sendFile(m.chat, data5.icon, 'thumbnail.jpg', response, m, null, fake)
+//    await conn.sendMessage(m.chat, {image: {url: data5.icon}, caption: response}, {quoted: m});
+ if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
+      return await conn.sendMessage(m.chat, {text: '*[ ⛔ ] El archivo es demasiado pesado por lo que no se enviará.*'}, {quoted: m});
+    }
+    await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m});
+  } catch {
+    throw `*[❗] Error, no se encontrarón resultados para su búsqueda.*`;
+  }    
+};
+handler.command = /^(apk|modapk|dapk2|aptoide|aptoidedl)$/i;
+export default handler;
