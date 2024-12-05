@@ -1,47 +1,30 @@
-import { snapsave } from '@bochilteam/scraper'
+import { igdl } from "ruhend-scraper";
 
-let handler = async (m, { conn, args }) => {
-    if (!args[0]) throw m.reply('✧ Ingresa el link de *Instagram*')
-    const sender = m.sender.split('@')[0];
-    const url = args[0];
-
-    m.reply(wait);
-
+let handler = async (m, { args, conn }) => { 
+    if (!args[0]) {
+        return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, fake);
+    }
+    
     try {
-        const data = await snapsave(url);
+        await m.react('🕑');
         
-        // Find the HD video
-        let video = data.results[0];
+        let res = await igdl(args[0]);
+        let data = res.data; 
+        
+        for (let media of data) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
-        if (video) {
-            const videoBuffer = await fetch(video.url).then(res => res.buffer());
-            const caption = `✧ Para: @${sender}`;
-
-            await conn.sendMessage(
-                m.chat, {
-                    video: videoBuffer,
-                    mimetype: "video/mp4",
-                    fileName: `video.mp4`,
-                    caption: caption,
-                    mentions: [m.sender],
-                }, {
-                    quoted: m
-                }
-            );
-        } else {
-            throw m.reply('Error');
+            await m.react('✅');
+            await conn.sendFile(m.chat, media.url, 'instagram.mp4', dev, null, m); 
         }
-    } catch (error) {
-        console.error('Handler Error:', error);
-        conn.reply(m.chat, `Error: ${error}`, m);
+    } catch {
+        await m.react('❌');
     }
 }
 
-handler.help = ['ig'].map(v => v + ' <link>')
-handler.tags = ['dl']
+handler.corazones = 2
+handler.command = ['ig', 'igdl', 'instagram'];
+handler.tags = ['dl'];
+handler.help = ['ig *<link>*'];
 
-handler.command = /^(ig(dl)?)$/i
-handler.limit = true
-handler.register = true
-
-export default handler
+export default handler;
