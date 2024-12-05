@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
   let q = m.quoted ? m.quoted : m;
   let mime = (q.msg || q).mimetype || '';
 
-  // Verifica que sea una imagen o video
+  // Verifica si es una imagen o un video
   if (!mime.startsWith('image/') && !mime.startsWith('video/')) {
     return m.reply('Responde a una *Imagen o Video.*');
   }
@@ -48,7 +48,7 @@ let handler = async (m, { conn }) => {
 };
 
 handler.tags = ['convertir'];
-handler.help = ['tourl'];
-handler.command = /^(tourl|topomf)$/i;
+handler.help = ['tourl2'];
+handler.command = /^(tourl2|topomf)$/i;
 handler.register = true;
 export default handler;
