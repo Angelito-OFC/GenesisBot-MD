@@ -13,7 +13,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (stiker) await conn.sendFile(m.chat, stiker, '', m, '', { asSticker: 1 })
 }
 handler.help = ['smeme <txt>|<txt>']
-handler.tags = ['tools']
+handler.tags = ['sticker']
 handler.command = /^(smeme)$/i
 
 handler.register = true
