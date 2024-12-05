@@ -92,6 +92,28 @@ global.fake = {
                 }
             }
         }
+
+  // Respuesta con enlace de WhatsApp
+  global.rpl = {
+    contextInfo: {
+            isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: id_canal,
+      serverMessageId: 100,
+      newsletterName: nam,
+    }, 
+      externalAdReply: {
+        mediaUrl: bgp,
+        mediaType: 'VIDEO',
+        description: 'support group',
+        title: packname,
+        body: 'grupo de soporte',
+        thumbnailUrl: pp,
+        sourceUrl: bgp
+      }
+    }
+  };
+
         // Fake 🤥
         global.ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 9999999999999999999999999999999999999999999999999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
         global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./storage/img/catalogo.png'), thumbnail: fs.readFileSync('./storage/img/catalogo.png'), sendEphemeral: true } } }
