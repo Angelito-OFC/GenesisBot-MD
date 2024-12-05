@@ -46,7 +46,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 
 handler.help = ['tiktok *<link>*']
 handler.corazones = 3
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(tiktok)$/i;
 
 export default handler
