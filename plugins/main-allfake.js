@@ -12,6 +12,7 @@ let imagenes = ["https://pomf2.lain.la/f/rycjgv2t.jpg",
 "https://pomf2.lain.la/f/mcqdpzko.jpg"]
 
     let icono = imagenes[Math.floor(Math.random() * imagenes.length)]
+    let grupos = [group, group2].getRandom()
     let redes = [canal, github, instagram].getRandom()
     let name = await conn.getName(m.sender)
     let pp = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
@@ -103,7 +104,7 @@ global.fake = {
       newsletterName: nam,
     }, 
       externalAdReply: {
-        mediaUrl: bgp,
+        mediaUrl: grupos,
         mediaType: 'VIDEO',
         description: 'support group',
         title: packname,
