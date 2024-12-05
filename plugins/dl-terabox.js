@@ -25,7 +25,7 @@ await m.react('🕓')
   }
 };
 handler.help = ["terabox *<url>*"];
-handler.tags = ["downloader"];
+handler.tags = ["dl"];
 handler.command = ["terabox"];
 
 export default handler;
