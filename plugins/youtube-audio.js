@@ -33,9 +33,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     }
 };
 
-handler.help = ['A'];
-handler.tags = ['downloader'];
-handler.customPrefix = /^(a|A)/; // Prefijo personalizado
+handler.customPrefix = /^(a|A)/;
 handler.command = new RegExp();
 
 export default handler;
