@@ -37,7 +37,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         puntos = -poin
     }
 
-    user.limit += puntos
+    user.corazones += puntos
     conn.reply(m.chat, `${resultado}`, m, rcanal)
 }
 
