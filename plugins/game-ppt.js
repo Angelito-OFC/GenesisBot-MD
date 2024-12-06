@@ -23,17 +23,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let puntos = 0
 
     if (text === astro) {
-        resultado = `[ ✿ ]︎ Fue un empate!! ten *100 ⭐ Estrellas* como recompensa`
+        resultado = `[ ✿ ]︎ Fue un empate!! ten *100 🤍 Corazones* como recompensa`
         puntos = 100
     } else if (
         (text === 'piedra' && astro === 'tijera') ||
         (text === 'tijera' && astro === 'papel') ||
         (text === 'papel' && astro === 'piedra')
     ) {
-        resultado = `[ ✰ ]︎ GANASTE!! acabas de ganar *300 ⭐ Estrellas*`
+        resultado = `[ ✰ ]︎ GANASTE!! acabas de ganar *300 🤍 Corazones*`
         puntos = poin
     } else {
-        resultado = `[ ✿︎ ] PERDISTE!! acabas de perder *300 ⭐ Estrellas*`
+        resultado = `[ ✿︎ ] PERDISTE!! acabas de perder *300 🤍 Corazones*`
         puntos = -poin
     }
 
