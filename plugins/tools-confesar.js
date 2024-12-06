@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.menfess = conn.menfess ? conn.menfess : {}
-    if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*✧ Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
+    if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*🤍 Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
     let [jid, name, pesan] = text.split('|');
     if ((!jid || !name || !pesan)) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*🤍 Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
     jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
