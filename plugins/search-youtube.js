@@ -78,7 +78,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.fromObject({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: "Resultados de la búsqueda completos..."
+                        text: "🤍 *Resultados de tu búsqueda de ${text}*"
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
                         text: wm
