@@ -1,14 +1,13 @@
 import fetch from 'node-fetch';
 import yts from "yt-search";
 import axios from 'axios';
-const { generateWAMessageContent, generateWAMessageFromContent, proto } = (await import('@whiskeysockets/baileys')).default;
+const { generateWAMessageContent, generateWAMessageFromContent, proto } = (await import('@adiwajshing/baileys')).default;
 import FormData from "form-data";
 import Jimp from "jimp";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) return m.reply(`• *Ejemplo:* ${usedPrefix + command} elaina edit`);
 
-    await m.react('🕒');
 
     async function createImage(img) {
         const { imageMessage } = await generateWAMessageContent({
@@ -39,10 +38,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       let pr = await remini(imageB, "enhance")
         push.push({
             body: proto.Message.InteractiveMessage.Body.fromObject({
-                text: `◦  *Titulo*: ${video.title}\n◦  *Duración*: ${video.timestamp}\n◦  *Vistas*: ${video.views}`
+                text: `🎬 *Título:* ${video.title}\n⌛ *Duración:* ${video.timestamp}\n👀 *Vistas:* ${video.views}`
             }),
             footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                text: 'hola' 
+                text: '乂 Y O U T U B E' 
             }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
                 title: `Video - ${i++}`,
@@ -52,16 +51,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
                 buttons: [
                     {
-                "name": "cta_copy",
-                "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar video! 📹",
-                "copy_code": `.ytmp4 ${video.url}`
+                        "name": "cta_url",
+                        "buttonParamsJson": `{"display_text":"Mirar en YouTube","url":"${video.url}"}`
                     },
                     {
                 "name": "cta_copy",
                 "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar video! 📹",
-                "copy_code": `.ytmp4 ${video.url}`
+                "display_text": "Descargar audios! 🎧",
+                "copy_code": `.ytmp3 ${video.url}`
                 })
               }
                 ]
@@ -96,7 +93,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }, {});
 
     await conn.relayMessage(m.chat, bot.message, { messageId: bot.key.id });
-await m.react('✅');
 }
 
 handler.help = ["ytslide", "yts"];
@@ -130,4 +126,3 @@ async function remini(imageData, operation) {
     )
   })
 }
-
