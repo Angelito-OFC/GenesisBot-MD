@@ -43,7 +43,7 @@ buttons: [ */
                 buttons: [
 {
 "name": "cta_copy",
-"buttonParamsJson": "{\"display_text\":\"copiar url\",\"id\":\"123456789\",\"copy_code\":\"" + track.url + "\"}"
+"buttonParamsJson": "{\"display_text\":\"🎧 ¡Descargar Audio! 🎧\",\"id\":\"123456789\",\"copy_code\":\".spotify" + track.url + "\"}"
 },
 ]
 })
