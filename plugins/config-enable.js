@@ -166,6 +166,15 @@ break
 *Tipo :* welcome
 *Descripción :* Des/Activa la *Bienvenida* y *Despedida* para Grupos
 
+antiTiktok
+antiYoutube
+antiTelegram
+antiFacebook
+antiInstagram
+antiTwitter
+antiDiscord
+antiver
+
 *Tipo :* nsfw 
 *Descripción :* Des/Activa los comandos *NSFW* para Grupos
 
