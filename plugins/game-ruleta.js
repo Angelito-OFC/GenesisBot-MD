@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   let args = text.trim().split(" ")
   if (args.length !== 2) return conn.reply(m.chat, `🤍 Formato incorrecto. Debes ingresar una cantidad de *🤍 corazones* y apostar a un color, por ejemplo: *${usedPrefix + command} 20 black*`, m, rcanal)
 
-  let limit = parseInt(args[0])
+  let corazones = parseInt(args[0])
   let color = args[1].toLowerCase()
 
   if (isNaN(corazones) || corazones <= 0) return conn.reply(m.chat, `🤍 Por favor, ingresa una cantidad válida para la apuesta.`, m, rcanal)
