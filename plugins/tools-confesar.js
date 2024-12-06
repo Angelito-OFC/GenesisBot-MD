@@ -26,7 +26,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     }
                 }
           }}, {}).then(() => {
-            m.reply('✧ Mensaje enviado con éxito.')
+            m.reply('*🤍 Mensaje enviado con éxito.*')
             conn.menfess[id] = {
                 id,
                 dari: m.sender,
