@@ -2,7 +2,7 @@ import moment from 'moment-timezone'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args }) => {
-let res = await fetch('https://api.github.com/repos/StarlightsTeam/Ai-Hoshino')
+let res = await fetch('https://api.github.com/repos/Angelito-OFC/GenesisBot-MD')
 let json = await res.json()
 try {
 let txt = `*乂  S C R I P T  -  M A I N*\n\n`
@@ -13,7 +13,7 @@ let txt = `*乂  S C R I P T  -  M A I N*\n\n`
     txt += `	✩   *Url* : ${json.html_url}\n`
     txt += `	✩   *Forks* : ${json.forks_count}\n`
     txt += `	✩   *Stars* : ${json.stargazers_count}\n\n`
-    txt += `> 🚩 *${textbot}*`
+    txt += `> 🤍 *${textbot}*`
 let img = await (await fetch(`https://pomf2.lain.la/f/rd6slv9.jpg`)).buffer()
 
 await conn.sendAi(m.chat, botname, textbot, txt, img, img, canal, m)
