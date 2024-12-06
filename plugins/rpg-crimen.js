@@ -8,13 +8,13 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   let tiempoEspera = 5 * 60
   if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
     let tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
-    m.reply(`🚩 Ya has cometido un Crimen recientemente, espera *⏱ ${tiempoRestante}* para cometer tu próximo Crimen y evitar ser atrapado.`)
+    m.reply(`🤍 Ya has cometido un Crimen recientemente, espera *⏱ ${tiempoRestante}* para cometer tu próximo Crimen y evitar ser atrapado.`)
     return
   }
   
   cooldowns[m.sender] = Date.now()
   
-  let senderLimit = users[senderId].limit || 0
+  let sendercorazones = users[senderId].corazones || 0
 
   let randomUserId = Object.keys(users)[Math.floor(Math.random() * Object.keys(users).length)]
 
@@ -22,7 +22,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     randomUserId = Object.keys(users)[Math.floor(Math.random() * Object.keys(users).length)]
   }
 
-  let randomUserLimit = users[randomUserId].limit || 0
+  let randomUsercorazones = users[randomUserId].corazones || 0
 
   let minAmount = 15
   let maxAmount = 50
@@ -33,10 +33,10 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
   switch (randomOption) {
   case 0:
-  users[senderId].limit += amountTaken
-  users[randomUserId].limit -= amountTaken
+  users[senderId].corazones += amountTaken
+  users[randomUserId].corazones -= amountTaken
   conn.sendMessage(m.chat, {
-        text: `🚩¡Lograste cometer tu crimen con exito!, acabas de robar *${amountTaken} ⭐ Estrellas* a @${randomUserId.split("@")[0]}\n\nSe suman *+${amountTaken} ⭐ Estrellas* a ${senderName}.`,
+        text: `🤍¡Lograste cometer tu crimen con exito!, acabas de robar *${amountTaken} 🤍 corazones* a @${randomUserId.split("@")[0]}\n\nSe suman *+${amountTaken} 🤍 corazones* a ${senderName}.`,
   contextInfo: { 
   mentionedJid: [randomUserId],
   }
@@ -44,17 +44,17 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   break
 
   case 1:
-  let amountSubtracted = Math.min(Math.floor(Math.random() * (senderLimit - minAmount + 1)) + minAmount, maxAmount)
-  users[senderId].limit -= amountSubtracted
-  conn.reply(m.chat, `🚩 No fuiste cuidadoso y te atraparon mientras cometias tu cirme, se restaron *-${amountSubtracted} ⭐ Estrellas* a ${senderName}.`, m)
+  let amountSubtracted = Math.min(Math.floor(Math.random() * (sendercorazones - minAmount + 1)) + minAmount, maxAmount)
+  users[senderId].corazones -= amountSubtracted
+  conn.reply(m.chat, `🤍 No fuiste cuidadoso y te atraparon mientras cometias tu cirme, se restaron *-${amountSubtracted} 🤍 corazones* a ${senderName}.`, m)
   break
 
   case 2:
-  let smallAmountTaken = Math.min(Math.floor(Math.random() * (randomUserLimit / 2 - minAmount + 1)) + minAmount, maxAmount)
-  users[senderId].limit += smallAmountTaken
-  users[randomUserId].limit -= smallAmountTaken
+  let smallAmountTaken = Math.min(Math.floor(Math.random() * (randomUsercorazones / 2 - minAmount + 1)) + minAmount, maxAmount)
+  users[senderId].corazones += smallAmountTaken
+  users[randomUserId].corazones -= smallAmountTaken
   conn.sendMessage(m.chat, {
-  text: `🚩 Lograste cometer tu crimen con exito, pero te descubrieron y solo lograste tomar *${smallAmountTaken} ⭐ Estrellas* de @${randomUserId.split("@")[0]}\n\nSe suman *+${smallAmountTaken} ⭐ Estrellas* a ${senderName}.`,
+  text: `🤍 Lograste cometer tu crimen con exito, pero te descubrieron y solo lograste tomar *${smallAmountTaken} 🤍 acorazones* de @${randomUserId.split("@")[0]}\n\nSe suman *+${smallAmountTaken} 🤍 corazones* a ${senderName}.`,
   contextInfo: { 
   mentionedJid: [randomUserId],
   }
