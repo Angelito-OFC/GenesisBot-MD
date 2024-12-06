@@ -9,7 +9,7 @@ let handler = async (m, { conn, command, args }) => {
     conn.reply(m.chat, `╭────═[ *R P G  -  S H O P* ]═─────⋆
 │╭───────────────···
 ││✯ *Compra* : + ${count} 🤍 Corazones 
-││✯ *Costo* : -${xppercorazones * count} 💫 XP
+││✯ *Costo* : -${xpperlimit * count} 💫 XP
 │╰────────────────···
 ╰───────────═┅═──────────`, m, rcanal)
   } else conn.reply(m.chat, `🚩 Lo siento, no tienes suficientes *⭐ XP* para comprar *${count} 🤍 Corazones.*`, m, rcanal)
