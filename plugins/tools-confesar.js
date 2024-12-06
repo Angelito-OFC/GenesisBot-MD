@@ -39,7 +39,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         })
 }
 
-handler.tags = ['confesar']
+handler.tags = ['tools']
 handler.help = ['mfs'].map(v => v + ' <número|nombre anonimo|mensaje>')
 handler.command = /^(mfs|confesar|memfes|confes)$/i
 handler.register = true
