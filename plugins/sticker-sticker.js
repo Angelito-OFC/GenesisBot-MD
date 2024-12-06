@@ -44,7 +44,7 @@ m.react('🐈‍⬛')
 }
 handler.help = ['sticker']
 handler.tags = ['sticker']
-handler.command = ['s', 'sticker'] 
+handler.command = /^s(tic?ker)?(gif)?$/i
 
 export default handler
 
