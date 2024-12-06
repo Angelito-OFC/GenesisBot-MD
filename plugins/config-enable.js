@@ -48,6 +48,88 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       chat.antiLink = isEnable
       break
       
+
+case 'antitiktok': case 'antitk': case 'antitik':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiTiktok = isEnable 
+break
+
+case 'antiyoutube': case 'antiyt':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiYoutube = isEnable 
+break
+
+case 'antitelegram': case 'antitl': case 'antitele': case 'antitg': case 'antitel':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiTelegram = isEnable 
+break
+
+case 'antifacebook': case 'antifb': case 'antifbook':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiFacebook = isEnable 
+break
+
+case 'antiinstagram': case 'antinstagram': case 'antiig': case 'antig': case 'antiinsta': case 'antinsta':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiInstagram = isEnable 
+break
+
+case 'antitwitter': case 'antitw': case 'antitwit': case 'antitwter': case 'antitwiter': case 'antix':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiTwitter = isEnable 
+break
+
+case 'antidiscord':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiDiscord = isEnable 
+break
+
+case 'antithreads':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiThreads = isEnable 
+break
+
+case 'antitwitch':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiTwitch = isEnable 
+break
+
       case 'nsfw':
       case 'modohorny':
        if (m.isGroup) {
@@ -57,6 +139,15 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
            }}
     chat.nsfw = isEnable          
     break
+
+case 'antiver': case 'modover': case 'modoobservar': case 'modobservar': case 'antiviewonce':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiver = isEnable 
+break
 
      case 'antiarabes':
      case 'antinegros':
@@ -83,6 +174,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 
 *Tipo :* antilink 
 *Descripción :* Des/Activa el *AntiLink* para Grupos
+
+*Tipo :* antiver 
+*Descripción :* Des/Activa el *antiver* para Grupos
 
 *Tipo :* autoread 
 *Descripción :* Des/Activa el *AutoRead* para el Bot
