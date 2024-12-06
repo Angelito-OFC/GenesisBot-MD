@@ -52,8 +52,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
                 buttons: [
                     {
-                        "name": "cta_url",
-                        "buttonParamsJson": `{"display_text":"Mirar en YouTube","url":"${video.url}"}`
+                        "name": "cta_copy",
+                        "buttonParamsJson": JSON.stringify({
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `.ytmp3 ${video.url}`
                     },
                     {
                 "name": "cta_copy",
