@@ -89,6 +89,22 @@ export async function handler(chatUpdate) {
                     chat.bienvenida = true 
                 if (!('antiLink' in chat))
                     chat.antiLink = false
+                if (!('antiTiktok' in chat))                             
+                    chat.antiTiktok = false
+                if (!('antiYoutube' in chat)) 
+                    chat.antiYoutube = false
+                if (!('antiTelegram' in chat)) 
+                    chat.antiTelegram = false
+                if (!('antiFacebook' in chat)) 
+                    chat.antiFacebook = false
+                if (!('antiInstagram' in chat)) 
+                    chat.antiInstagram = false
+                if (!('antiTwitter' in chat)) 
+                    chat.antiTwitter = false
+                if (!('antiDiscord' in chat)) 
+                    chat.antiDiscord = false
+                if (!('antiver' in chat))
+                    chat.antiver = false
                 if (!('onlyLatinos' in chat))
                     chat.onlyLatinos = false
                  if (!('nsfw' in chat))
@@ -100,6 +116,14 @@ export async function handler(chatUpdate) {
                     isBanned: false,
                     bienvenida: true,
                     antiLink: false,
+                    antiTiktok: false,
+                    antiYoutube: false,
+                    antiTelegram: false,
+                    antiFacebook: false,
+                    antiInstagram: false,
+                    antiTwitter: false,
+                    antiDiscord: false,
+                    antiver: true,
                     onlyLatinos: false,
                     nsfw: false, 
                     expired: 0, 
