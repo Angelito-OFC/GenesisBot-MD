@@ -55,7 +55,7 @@ GenesisBot-MD recibe **soporte semanal** si llegas a ver un error **repetitivame
 ***
 ### 💥 AGRADECIMIENTOS 
 
-<a href="https://github.com/StarlinghtsTeam"><img src="https://github.com/StarlinghtsTeam.png" width="100" height="100" alt="StarlinghtsTeam"/></a>
+<a href="https://github.com/StarlightsTeam"><img src="https://github.com/StarlightsTeam.png" width="100" height="100" alt="StarlightsTeam"/></a>
 
 ### ☁️ COLABORADORES
 
