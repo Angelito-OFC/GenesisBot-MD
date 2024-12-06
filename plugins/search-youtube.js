@@ -81,7 +81,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                         text: '*🤍 Resultados de:* ' + `*${text}*`
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: wm
+                        text: 'Para descargar, solo desliza sobre los resultados y toca el botón para copiar, y copiaras el comando, solo envialo, y listo! 😁'
                     }),
                     header: proto.Message.InteractiveMessage.Header.create({
                         hasMediaAttachment: false
