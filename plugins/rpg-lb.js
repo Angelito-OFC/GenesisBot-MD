@@ -2,17 +2,17 @@ let handler = async (m, { conn, args, participants }) => {
 let users = Object.entries(global.db.data.users).map(([key, value]) => {
 return {...value, jid: key}})
 let sortedExp = users.map(toNumber('exp')).sort(sort('exp'))
-let sortedLim = users.map(toNumber('limit')).sort(sort('limit'))
+let sortedLim = users.map(toNumber('corazones')).sort(sort('corazones'))
 let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
 let usersExp = sortedExp.map(enumGetKey)
 let usersLim = sortedLim.map(enumGetKey) 
 let usersLevel = sortedLevel.map(enumGetKey)
 let len = args[0] && args[0].length > 0 ? Math.min(5, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
 let text = `
-╭───═[ *Top ${len} Estrellas ⭐* ]═────⋆
+╭───═[ *Top ${len} Corazones 🤍* ]═────⋆
 │╭───────────────···
 ✩│ Tú eres el *${usersLim.indexOf(m.sender) + 1}* de *${usersLim.length}*
-✩│ ${sortedLim.slice(0, len).map(({ jid, limit }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${limit} ⭐*`).join`\n✩│ `}
+✩│ ${sortedLim.slice(0, len).map(({ jid, limit }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${corazones} 🤍*`).join`\n✩│ `}
 │╰────────────────···
 ╰───────────═┅═──────────
 
