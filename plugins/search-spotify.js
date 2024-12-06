@@ -23,19 +23,19 @@ body: proto.Message.InteractiveMessage.Body.fromObject({
 text: '${track.title} - ${track.artist}'
 }),
 footer: proto.Message.InteractiveMessage.Footer.fromObject({text: `©️ ρσωε૨ ɓყ ɠαℓαאყ ƭεαɱ`}),
-header: proto.Message.InteractiveMessage.Header.fromObject({title: '*\`【 SPOTIFY - SEARCH 】\`*', hasMediaAttachment: true, imageMessage: image}),
+header: proto.Message.InteractiveMessage.Header.fromObject({title: '', hasMediaAttachment: true, imageMessage: image}),
 nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
 buttons: [ */ 
 
         push.push({
             body: proto.Message.InteractiveMessage.Body.fromObject({
-                text: `\n> *🤍 \`TÍTULO:\`* ${track.title} \n> *🤍 \`ARTISTAS:\`* ${track.artist} \n> *🤍 \`ALBUM:\`* ${track.album} \n> *🤍 \`DURACIÓN:\`* ${track.duration} \n> *🤍 \`POPULARIDAD:\`* ${track.popularity} \n> *🤍 \`FECHA:\`* ${track.publish}`
+                text: `◦ *Título:* ${track.title} \n◦ *Artistas:* ${track.artist} \n◦ *Album:* ${track.album} \n◦ *Duración:* ${track.duration} \n◦ *Popularidad:* ${track.popularity} \n◦ *Fecha:* ${track.publish}`
             }),
             footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                text: '©️ ρσωε૨ ɓყ ɠαℓαאყ ƭεαɱ' 
+                text: '' 
             }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: '*\`【 SPOTIFY - SEARCH 】\`*',
+                title: '',
                 hasMediaAttachment: true,
                 imageMessage: image 
             }),
