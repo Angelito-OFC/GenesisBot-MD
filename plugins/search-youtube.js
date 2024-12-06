@@ -99,9 +99,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   await m.react('✅')
 }
 
-handler.help = ["ytslide", "yts"];
+handler.help = ["ytsearch", "yts"];
 handler.tags = ["search"];
-handler.command = ["ytslide", "yts"];
+handler.command = ["ytsearch", "yts"];
 
 export default handler;
 
