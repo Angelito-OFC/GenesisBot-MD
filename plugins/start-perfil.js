@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
   let biot = bio.status?.toString() || 'Sin Info'
   let user = global.db.data.users[who]
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://i.ibb.co/P4nbf7g/file.jpg')
-  let { exp, limit, name, registered, regTime, age, level } = global.db.data.users[who]
+  let { exp, corazones, name, registered, regTime, age, level } = global.db.data.users[who]
   let { min, xp, max } = xpRange(user.level, global.multiplier)
   let username = conn.getName(who)
   let prem = global.prems.includes(who.split`@`[0])
@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
       txt += `◦ *Numero* : ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}\n`
       txt += `◦ *Nacionalidad* : ${userNationality}\n`
       txt += `◦ *Link* : wa.me/${who.split`@`[0]}\n`
-      txt += `◦ *Corazones* : ${limit}\n`
+      txt += `◦ *Corazones* : ${corazones}\n`
       txt += `◦ *Nivel* : ${level}\n`
       txt += `◦ *XP* : Total ${exp} (${user.exp - min}/${xp})\n`
       txt += `◦ *Premium* : ${prem ? 'Si' : 'No'}\n`
