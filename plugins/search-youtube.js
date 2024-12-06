@@ -27,7 +27,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     let push = [];
     let results = await yts(text);
-    let videos = results.videos.slice(0, 6); 
+    let videos = results.videos.slice(0, 9); 
     shuffleArray(videos);
 
     let i = 1;
