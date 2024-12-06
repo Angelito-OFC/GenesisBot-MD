@@ -93,7 +93,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 })
             }
         }
-    }, {});
+    }, {
+    'quoted': m
+  });
 
     await conn.relayMessage(m.chat, bot.message, { messageId: bot.key.id });
   await m.react('✅')
