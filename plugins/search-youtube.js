@@ -8,6 +8,7 @@ import Jimp from "jimp";
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) return m.reply(`• *Ejemplo:* ${usedPrefix + command} elaina edit`);
 
+  await m.react('🕓')
 
     async function createImage(img) {
         const { imageMessage } = await generateWAMessageContent({
@@ -95,6 +96,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }, {});
 
     await conn.relayMessage(m.chat, bot.message, { messageId: bot.key.id });
+  await m.react('✅')
 }
 
 handler.help = ["ytslide", "yts"];
