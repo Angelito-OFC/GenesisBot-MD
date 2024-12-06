@@ -1,7 +1,7 @@
 import { googleImage, pinterest } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) return conn.reply(m.chat, `🚩 Ingresa un texto junto al comando.\n\n*Ejemplo:*\n*${usedPrefix + command}* Ai Hoshino`, m, rcanal)
+if (!text) return conn.reply(m.chat, `🤍 Ingresa un texto junto al comando.\n\n*Ejemplo:*\n*${usedPrefix + command}* Ai Genesis`, m, fake)
 await m.react('🕓')
 try {
 let res = await (await googleImage('wallpaper' + text)).getRandom()
