@@ -38,10 +38,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       let pr = await remini(imageB, "enhance")
         push.push({
             body: proto.Message.InteractiveMessage.Body.fromObject({
-                text: `🎬 *Título:* ${video.title}\n⌛ *Duración:* ${video.timestamp}\n👀 *Vistas:* ${video.views}`
+                text: `◦ *Título:* ${video.title}\n◦ *Duración:* ${video.timestamp}\n◦ *Vistas:* ${video.views}`
             }),
             footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                text: '乂 Y O U T U B E' 
+                text: '' 
             }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
                 title: `Video - ${i++}`,
