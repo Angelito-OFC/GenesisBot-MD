@@ -12,6 +12,9 @@ antiInstagram
 antiTwitter
 antiDiscord
 antiver
+modoadmin
+antispam
+antitoxic
 nsfw
 antiarabes
 antilink
@@ -152,6 +155,33 @@ throw false
 }}
 chat.antiTwitch = isEnable 
 break
+
+case 'antitoxic': case 'antitoxicos': case 'antimalos':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antitoxic = isEnable
+break
+
+case 'antispam':
+isAll = true
+if (!isOwner) {
+global.dfail('owner', m, conn)
+throw false
+}
+bot.antiSpam = isEnable
+break
+
+case 'modoadmin': case 'soloadmin': case 'modeadmin':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.modoadmin = isEnable          
+break    
 
       case 'nsfw':
       case 'modohorny':
