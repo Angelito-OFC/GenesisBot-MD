@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
             txt += `✩ *Nivel* : ${user.level}\n`
             txt += `✩ *XP* : ${user.exp - min}/${xp}\n\n`
             txt += `Te falta *${max - user.exp}* de *💫 XP* para subir de nivel`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, fake)
     }
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
@@ -23,7 +23,7 @@ await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
            txt += `✩ *Nivel Actual* : ${user.level}\n\n`
            txt += `🤍 Cuanto más interactúes con *Ai Hoshino*, mayor será tu Nivel`
 
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, fake)
         }
     }
 handler.help = ['levelup']
