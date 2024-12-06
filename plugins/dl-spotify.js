@@ -75,7 +75,7 @@ await m.react('🕓');
   }
 };
 
-handler.command = /^(spotifydl)$/i;
+handler.command = /^(spotify)$/i;
 
 export default handler;
 
