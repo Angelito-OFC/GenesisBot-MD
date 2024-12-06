@@ -105,6 +105,12 @@ export async function handler(chatUpdate) {
                     chat.antiDiscord = false
                 if (!('antiver' in chat))
                     chat.antiver = false
+                if (!('modoadmin' in chat))
+                    chat.modoadmin = false
+                if (!('antitoxic' in chat))
+                    chat.antitoxic = false
+                if (!('antispam' in chat))
+                    chat.antispam = false
                 if (!('onlyLatinos' in chat))
                     chat.onlyLatinos = false
                  if (!('nsfw' in chat))
@@ -124,6 +130,9 @@ export async function handler(chatUpdate) {
                     antiTwitter: false,
                     antiDiscord: false,
                     antiver: true,
+                    modoadmin: false,
+                    antitoxic: false,
+                    antispam: false,
                     onlyLatinos: false,
                     nsfw: false, 
                     expired: 0, 
