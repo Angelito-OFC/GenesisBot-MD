@@ -95,7 +95,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 `.trim())
       throw false
   }
-  m.reply(`La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}`)
+conn.sendMessage(m.chat, {text: `\`❱❱ 𝗚𝗘𝗡𝗘𝗦𝗜𝗦 • 𝗠𝗗 ❰❰\`\n\n*» 𝗢𝗣𝗖𝗜𝗢𝗡 |* _${type.toUpperCase()}_\n*» 𝗘𝗦𝗧𝗔𝗗𝗢 |* ${isEnable ? 'ON' : 'OFF'}\n*» 𝗣𝗔𝗥𝗔 |* ${isAll ? 'ESTE BOT' : isUser ? '' : 'ESTE CHAT'}\n> ${stickpack}`}, {quoted: estilo});
 }
 
 handler.help = ['enable', 'disable']
