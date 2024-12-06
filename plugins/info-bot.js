@@ -1,31 +1,26 @@
-import fetch from 'node-fetch';
-let handler = async (m, { conn, usedPrefix: _p }) => {
-  try {
-    let pp = await conn.profilePictureUrl(m.sender, 'image')
+import fs from 'fs';
+const handler = (m) => m;
+handler.all = async function(m) {
+  const vn = './media/audios/bot.mp3';
+  const chat = global.db.data.chats[m.chat];
 
-    const anu = {
-      "key": {
-        "fromMe": false,
-        "participant": "0@s.whatsapp.net",
-        "remoteJid": "0@s.whatsapp.net"
-      },
-      "message": {
-        "groupInviteMessage": {
-          "groupJid": "6285240750713-1610340626@g.us",
-          "inviteCode": "mememteeeekkeke",
-          "groupName": "P",
-          "caption": "Hola, soy Genesis",
-          "jpegThumbnail": await (await fetch(pp)).buffer()
-        }
-      }
-    }
-    
-    conn.sendMessage(m.chat, { text: 'Hola soy Ai Hoshino, ¿Cómo puedo ayudarte?' }, { quoted: anu })
-  } catch (error) {
-    conn.sendMessage(m.chat, 'Hola soy Ai Hoshino, ¿Cómo puedo ayudarte?', 'conversation', { quoted: m })
-  }
+  if (/^bot$/i.test(m.text) && !chat.isBanned) {
+    conn.sendPresenceUpdate('recording', m.chat);
+conn.reply(m.chat, `🤍 ¡Hola! Soy Ai Genesis, en que puedo ayudarte hoy?\n\n✰ Usa *!menu* para ver mis comandos.`, m, rcanal, )
+    m.conn.sendMessage(m.chat, {audio: {url: vn}, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m});
 }
-
-handler.customPrefix = /^(Ai)$/i
-handler.command = new RegExp
-export default handler
+if (/^sexo$/i.test(m.text)) {
+conn.reply(m.chat, `*pervertido* 🫣`, m, rcanal, )
+}
+if (/^tetas|teta$/i.test(m.text)) {
+conn.reply(m.chat, `*que caliente eres* 🥵`, m, rcanal, )
+}
+if (/^bug$/i.test(m.text)) {
+conn.reply(m.chat, `*tu mamá we* 😹`, m, rcanal, )
+}
+if (/^pene$/i.test(m.text)) {
+conn.reply(m.chat, `*comes* 😹`, m, rcanal, )
+}
+  return !0;
+};
+export default handler;
