@@ -24,7 +24,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
           stiker = await sticker(false, out, global.stickpack, global.stickauth)
         }
       }
-      conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, rpl)
+   await await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, rpl)
     } else if (/image/g.test(mime)) {
       // Jalankan kode untuk gambar di sini
       let [packname, ...author] = args.join` `.split`|`
