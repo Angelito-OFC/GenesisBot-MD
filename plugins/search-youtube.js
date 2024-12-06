@@ -42,7 +42,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 text: `◦  *Titulo*: ${video.title}\n◦  *Duración*: ${video.timestamp}\n◦  *Vistas*: ${video.views}`
             }),
             footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                text: '' 
+                text: 'hola' 
             }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
                 title: `Video - ${i++}`,
