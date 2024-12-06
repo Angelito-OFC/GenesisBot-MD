@@ -44,7 +44,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 text: '' 
             }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `Video - ${i++}`,
+                title: ``,
                 hasMediaAttachment: true,
                 imageMessage: await createImage(pr) 
             }),
@@ -53,14 +53,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     {
                 "name": "cta_copy",
                 "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar video! 📹",
-                "copy_code": `.ytmp4 ${video.url}`
+                "display_text": "Descargar audio! 🎧",
+                "copy_code": `.ytmp3 ${video.url}`
                 })
               },{
                 "name": "cta_copy",
                 "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar audios! 🎧",
-                "copy_code": `.ytmp3 ${video.url}`
+                "display_text": "Descargar video! 📹",
+                "copy_code": `.ytmp4 ${video.url}`
                 })
               }
                 ]
