@@ -63,7 +63,9 @@ footer: proto.Message.InteractiveMessage.Footer.create({text: '_\`ꜱ\` \`ᴘ\` 
 header: proto.Message.InteractiveMessage.Header.create({hasMediaAttachment: false}),
 carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({cards: [...push]})
 })
-}}}, {})
+}}}, {
+    'quoted': m
+  });
 
 await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
 } catch (error) {
