@@ -37,9 +37,9 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
         }
     }
 }
-handler.help = ['ytmp4 *<link yt>*']
+handler.help = ['ytmp4doc *<link yt>*']
 handler.tags = ['dl']
-handler.command = ['ytmp4', 'ytv', 'yt']
+handler.command = ['ytmp4doc', 'ytvdoc']
 //handler.limit = 1
 handler.register = true
 
