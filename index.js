@@ -150,12 +150,12 @@ logger.level = "fatal"
 global.conn = makeWASocket(connectionOptions)
 
 if (!conn.authState.creds.registered) {
-  const phoneNumber = await question(chalk.blue(' Ingresa el número de WhatsApp en el cual estará la Bot\n'))
-  
+  const phoneNumber = await question(chalk.red('INGRESA EL NÚMERO DE WHATSAPP EN EL CUAL ESTARÁ LA BOT\n'))
+
   if (conn.requestPairingCode) {
-    let code = await conn.requestPairingCode(phoneNumber);
+    let code = await conn.requestPairingCode(phoneNumber)
     code = code?.match(/.{1,4}/g)?.join("-") || code;
-    console.log(chalk.magenta(`Su código es:`, code))
+    console.log(chalk.red(`Su código es:`, code))
   } else {
   }
 }
