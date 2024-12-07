@@ -1,5 +1,5 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
-import '../settings.js'
+import './settings.js'
 import {createRequire} from 'module'
 import path, {join, dirname} from 'path'
 import { setupMaster, fork } from 'cluster'
@@ -192,7 +192,7 @@ setInterval(async () => {
 
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("../sessions")
+let directorio = readdirSync("./sessions")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
@@ -232,7 +232,7 @@ if (SBprekey.length === 0) return null
 }}
 
 function purgeOldFiles() {
-const directories = ['../sessions/', '../serbot/']
+const directories = ['./sessions/', '../serbot/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -264,7 +264,7 @@ async function connectionUpdate(update) {
   }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (reason == 405) {
-await fs.unlinkSync("../sessions/" + "creds.json")
+await fs.unlinkSync("./sessions/" + "creds.json")
 console.log(chalk.bold.redBright(`Conexión replazada, Por favor espere un momento me voy a reiniciar...\nSi aparecen error vuelve a iniciar con : npm start`)) 
 process.send('reset')}
 if (connection === 'close') {
@@ -296,10 +296,10 @@ if (connection === 'close') {
 process.on('uncaughtException', console.error)
 
 let isInit = true;
-let handler = await import('../handler.js')
+let handler = await import('./handler.js')
 global.reloadHandler = async function(restatConn) {
   try {
-    const Handler = await import(`../handler.js?update=${Date.now()}`).catch(console.error);
+    const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error);
     if (Object.keys(Handler || {}).length) handler = Handler
   } catch (e) {
     console.error(e);
@@ -338,7 +338,7 @@ global.reloadHandler = async function(restatConn) {
   return true
 };
 
-const pluginFolder = global.__dirname(join(__dirname, '../plugins/index'))
+const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
 async function filesInit() {
