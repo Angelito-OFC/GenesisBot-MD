@@ -167,7 +167,7 @@ conn.well = false
 if (!opts['test']) {
   if (global.db) {
     setInterval(async () => {
-      if (global.db.data) await global.db.write()
+      if (global.db.data) await global.db.write();
       if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', 'serbot'], tmp.forEach((filename) => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
     }, 30 * 1000)
   }
@@ -178,6 +178,7 @@ async function clearTmp() {
   const filename = []
   tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 
+
   return filename.map(file => {
     const stats = statSync(file)
     if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) return unlinkSync(file)
@@ -186,9 +187,32 @@ async function clearTmp() {
 }
 
 setInterval(async () => {
-	await clearTmp()
-	console.log(chalk.cyan(`Se limpio la carpeta tmp`))
+        await clearTmp()
+        console.log(chalk.cyan(`Se limpio la carpeta tmp`))
 }, 60000)
+
+
+function purgeSession() {
+let prekey = []
+let directorio = readdirSync("./sessions")
+let filesFolderPreKeys = directorio.filter(file => {
+return file.startsWith('pre-key-')
+})
+prekey = [...prekey, ...filesFolderPreKeys]
+filesFolderPreKeys.forEach(files => {
+unlinkSync(`../sessions/${files}`)
+})
+}
+
+function redefineConsoleMethod(methodName, filterStrings) {
+const originalConsoleMethod = console[methodName]
+console[methodName] = function() {
+const message = arguments[0]
+if (typeof message === 'string' && filterStrings.some(filterString => message.includes(atob(filterString)))) {
+arguments[0] = ""
+}
+originalConsoleMethod.apply(console, arguments)
+}}
 
 async function connectionUpdate(update) {
   const {connection, lastDisconnect, isNewLogin} = update
