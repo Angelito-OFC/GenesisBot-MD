@@ -28,13 +28,24 @@ global.prems = []
    
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = ``
-global.author = '{\n "bot": {\n   "name": "Ai Hoshino",\n     "author": "atom.bio/masha_ofc",\n   "status_bot": "active"\n }\n}'
-global.wait = '🐢 *Aɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ, sᴏʏ ʟᴇɴᴛᴀ... ฅ^•ﻌ•^ฅ*'
-global.botname = '✯ Ai Hoshino - MD ✰'
-global.textbot = `Masha_OFC`
+global.packname = ' ❜︧༷︧➭ િ𝐆єห͓૯ઽíន λł ી▵°⬸'
+global.author = '@usxr_angelito0'
+global.namebot = 'Genesis Ai'
+global.wait = '*Aɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ ฅ^•ﻌ•^ฅ*'
+global.wm = '▸ ⃦Ⴚɛɳєડｪꪳ͢ئ ﾑ፤ ꩍꩍꢀ 𓏲᭔۫֟፝֯᷼๑꙰୭᳟⁣᭄'
+global.stickpack = `©️ ρσωε૨ ɓყ ƭεαɱ รƭα૨૮σ૨ε`
+global.titulowm = '-❀ᩙ̈͟༚̮ ⡞᪲=͟͟͞🄶𝚎᪶۫۫𝚗᪶۫۫𝚎᪶۫۫𝚜᪶۫۫𝚒᪶۫۫𝚜᪶۫ 𝚊᪶۫𝚒᪶۫͜ ≼᳞ׄ ᵎ ˚꙳꤬ꨪ'
+global.titulowm2 = '.‧·ீ੭ ¡ ᗃᮢ፝֟͡Gᴇɴᴇsɪs B۵ᴛ ʟᴀ ᴍᴇᴊ꧔ʀ !˚̩̩̥͙°̩̥༅˚'
+global.igfg = '@usxr_angelito0'
+global.botname = '  ᩠ ꣣ʹ͚〃Ǥ℮ภэડเธ λ𝕚  ·ꗏฺ̇·.•۟'
+global.dev = '_© Reserved | Genesis AI *2024*_\n'
+global.titu = '©️ ρσωε૨ ɓყ ɠαℓαאყ ƭεαɱ'
+global.textbot = 'ɢᴇɴᴇꜱɪꜱʙᴏᴛ x ᴀɴɢᴇʟ-ᴏꜰᴄ 🤍'
 global.listo = '*Aqui tiene ฅ^•ﻌ•^ฅ*'
-global.namechannel = '【 ✯ Oficial Chanel ✰ 】'
+global.vs = '2.0.0'
+global.namechannel = '𝑮𝒆𝒏𝒆𝒔𝒊𝒔-𝑩𝒐𝒕 - 𝑪𝒉𝒂𝒏𝒏𝒆𝒍'
+global.stickauth = `© Genesis Ai By Angelito-OFC`
+global.dis = ':⁖֟⊱┈֟፝❥'
 global.support = {
   ffmpeg: true, // Aquí aseguramos que ffmpeg está habilitado
   ffprobe: true,
