@@ -8,10 +8,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       m
     );
   }
+  await m.react('🕓')
 
   try {
     const result = await fluximg.create(text);
     if (result && result.imageLink) {
+      await m.react('✅')
       await conn.sendMessage(
         m.chat,
         {
