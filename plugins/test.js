@@ -14,12 +14,12 @@ let handler = async (m, { text, usedPrefix, command }) => {
     let url = `https://loco.web.id/wp-content/uploads/api/v1/bingai.php?q=${encodeURIComponent(text)}`;
     let response = await fetch(url);
 
-    if (!response.ok) throw 'Gagal menghubungi API. Silakan coba lagi nanti.';
+    if (!response.ok) throw 'No se pudo contactar con la API. Por favor, inténtalo de nuevo más tarde.';
 
     let json = await response.json();
 
     if (!json.status || !json.result || !json.result.ai_response) {
-      throw 'Maaf, tidak ada hasil yang relevan untuk pertanyaan Anda.';
+      throw 'Lo sentimos, no hay resultados relevantes para su pregunta.';
     }
 
     let aiResponse = json.result.ai_response.trim();
