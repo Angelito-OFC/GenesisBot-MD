@@ -1,25 +1,17 @@
-import ws from 'ws'
-import fetch from 'node-fetch'
+import { jidNormalizedUser } from "@whiskeysockets/baileys";
+import Jadibots from "../lib/jadibots.js";
+let handler = async (m, { usedPrefix }) => {
+    const users = [...Jadibots.conns.entries()].map(([k, v]) => v.user);
+    if (!users.length) throw m.reply("🤍 No hay subbots por ahora.")
+    const text = `–  *S E R B O T  -  S U B B O T S*
 
-async function handler(m, { conn: _envio, usedPrefix }) {
-const uniqueUsers = new Map()
-  
-global.conns.forEach((conn) => {
-if (conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED) {
-uniqueUsers.set(conn.user.jid.replace(/[^0-9]/g, ''), conn.user)}})
+${users.map((user, i) => `✧ ${i + 1}. @${user?.jid?.split?.("@")?.[0] ?? jidNormalizedUser(user?.id)?.split?.("@")?.[0] ?? user?.id}${user?.name ? ` (${user.name})` : ''}\n✦   https://wa.me/${parseInt(user?.jid ?? jidNormalizedUser(user?.id))}?text=${usedPrefix}menu`).join('\n')}
+`;
+    await m.reply(text.trim());
+};
 
-const message = Array.from(uniqueUsers.values()).map((user, index) => `┌  ✩  *${index + 1}* : @${user.jid.replace(/[^0-9]/g, '')}\n│  ✩  *Link* : http://wa.me/${user.jid.replace(/[^0-9]/g, '')}\n└  ✩  *Nombre* : ${user.name || 'Ai Génesis'}\n`
-  ).join('\n')
-  
-const replyMessage = message.length === 0 ? "" : message
-const totalUsers = uniqueUsers.size;
-const responseMessage = `${` –  *S E R B O T  -  S U B B O T S*\n\n${replyMessage.trim()}`.trim()}`
-  
-let img = await (await fetch(`https://i.ibb.co/1dW0kGf/file.jpg`)).buffer()
+handler.help = ['listjadibot'];
+handler.tags = ['serbot'];
+handler.command = /^(list(jadi)?bot|(jadi)?bots)$/i;
 
-await _envio.sendFile(m.chat, img, 'thumbnail.jpg', responseMessage, m, false, { mentions: _envio.parseMention(responseMessage) })
-}
-handler.command = ['listjadibot', 'bots']
-handler.help = ['bots']
-handler.tags = ['serbot']
-export default handler
+export default handler;
