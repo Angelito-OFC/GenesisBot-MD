@@ -1,5 +1,5 @@
 import axios from "axios";
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
     return conn.reply(
@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       m
     );
   }
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+
   try {
     const result = await fluximg.create(text);
     if (result && result.imageLink) {
@@ -32,14 +32,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     );
   }
 };
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+
 handler.help = ["flux <prompt>"];
 handler.tags = ["tools"];
 handler.command = ["flux"];
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
+
 export default handler;
-//wm https://whatsapp.com/channel/0029VaJYWMb7oQhareT7F40V
-//scrape by Daffa: https://whatsapp.com/channel/0029VaiVeWA8vd1HMUcb6k2S/244
+
 const fluximg = {
   defaultRatio: "2:3", 
 
