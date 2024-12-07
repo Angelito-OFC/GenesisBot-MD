@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
     return conn.reply(
       m.chat,
-      `Envía el comando con el formato: ${usedPrefix}${command} <prompt>\n\nEjemplo: ${usedPrefix}${command} paisaje hermoso`,
+      `Envía el comando con el formato: ${usedPrefix}${command} <text>\n\nEjemplo: ${usedPrefix}${command} paisaje hermoso`,
       m
     );
   }
@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         m.chat,
         {
           image: { url: result.imageLink },
-          caption: `Hasil Flux:\n\nPrompt: ${text}`,
+          caption: `*\`Resultados De:\`* ${text}`,
         },
         { quoted: m }
       );
