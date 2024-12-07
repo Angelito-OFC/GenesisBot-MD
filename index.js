@@ -93,24 +93,59 @@ global.loadDatabase = async function loadDatabase() {
 }
 loadDatabase()
 
-const { state, saveCreds } = await useMultiFileAuthState("sessions")
-const question = (text) => { const rl = readline.createInterface({ input: process.stdin, output: process.stdout }); return new Promise((resolve) => { rl.question(text, resolve) }) }
+global.authFile = `sessions`
+const { state, saveCreds } = await useMultiFileAuthState(global.authFile)
+
+const { version } = await fetchLatestBaileysVersion()
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+
+const filterStrings = [
+"Q2xvc2luZyBzdGFsZSBvcGVu",
+"Q2xvc2luZyBvcGVuIHNlc3Npb24=",
+"RmFpbGVkIHRvIGRlY3J5cHQ=",
+"U2Vzc2lvbiBlcnJvcg==",
+"RXJyb3I6IEJhZCBNQUM=",
+"RGVjcnlwdGVkIG1lc3NhZ2U="
+]
 
 console.info = () => {} 
-const connectionOptions = {
-  logger: pino({ level: "silent" }),
-  printQRInTerminal: false,
-  auth: state,
-  connectTimeoutMs: 60000,
-  defaultQueryTimeoutMs: 0,
-  keepAliveIntervalMs: 10000,
-  emitOwnEvents: true,
-  fireInitQueries: true,
-  generateHighQualityLinkPreview: true,
-  syncFullHistory: true,
-  markOnlineOnConnect: true,
-  browser: ["Ubuntu", "Chrome", "20.0.04"],
-}
+console.debug = () => {} 
+['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
+
+const logger = pino({
+  timestamp: () => `,"time":"${new Date().toJSON()}"`,
+}).child({ class: "client" })
+logger.level = "fatal"
+
+  const connectionOptions = {
+    version: [2, 3000, 1015901307],
+    logger,
+    printQRInTerminal: false,
+    auth: {
+      creds: state.creds,
+      keys: makeCacheableSignalKeyStore(state.keys, logger),
+    },
+    browser: Browsers.ubuntu("Chrome"),
+    markOnlineOnclientect: false,
+    generateHighQualityLinkPreview: true,
+    syncFullHistory: true,
+    retryRequestDelayMs: 10,
+    transactionOpts: { maxCommitRetries: 10, delayBetweenTriesMs: 10 },
+    defaultQueryTimeoutMs: undefined,
+    maxMsgRetryCount: 15,
+    appStateMacVerification: {
+      patch: false,
+      snapshot: false,
+    },
+    getMessage: async (key) => {
+      const jid = jidNormalizedUser(key.remoteJid)
+      const msg = await store.loadMessage(jid, key.id)
+
+      return msg?.message || ""
+    },
+  }
 
 global.conn = makeWASocket(connectionOptions)
 
