@@ -1,4 +1,4 @@
-import { jidNormalizedUser } from "@adiwajshing/baileys";
+import { jidNormalizedUser } from "@whiskeysockets/baileys";
 import Jadibots from "../lib/jadibots.js";
 let handler = async (m, { conn, text, isOwner }) => {
     const parent = await Jadibots.conn;
