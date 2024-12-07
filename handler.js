@@ -292,7 +292,7 @@ export async function handler(chatUpdate) {
                     m.reply('chirrido -_-')
                 else
                     m.exp += xp
-                if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
+                if (!isPrems && plugin.corazones && global.db.data.users[m.sender].corazones < plugin.corazones * 1) {
                     conn.reply(m.chat, `Se agotaron tus *🤍 corazones*`, m, null, fake)
                     continue
                 }
