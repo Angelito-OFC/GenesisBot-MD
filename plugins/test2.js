@@ -28,7 +28,7 @@ let handler = async (m, { conn, text, args, groupMetadata }) => {
         return conn.reply(m.chat, `🤍 Utilice el comando con opciones:\n1. \`gcsider --list\` para enumerar los miembros inactivos\n2. \`gcsider --kick\` para expulsar a miembros inactivos`, m)
     }
 
-    if (args[0] === '--list') {
+    if (args[0] === 'list') {
         if (total === 0) return conn.reply(m.chat, `🤍 *No hay bandos en este grupo.*`, m)
         
         const groupName = await conn.getName(m.chat)
@@ -41,7 +41,7 @@ let handler = async (m, { conn, text, args, groupMetadata }) => {
         })
     }
 
-    if (args[0] === '--kick') {
+    if (args[0] === 'kick') {
         if (total === 0) return conn.reply(m.chat, `🤍 *No hay bandos para patear en este grupo.*`, m)
 
         for (const user of sider) {
