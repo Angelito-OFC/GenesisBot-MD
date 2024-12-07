@@ -436,20 +436,16 @@ export async function handler(chatUpdate) {
 
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
-        rowner: `✯ Hola, este comando solo puede ser utilizado por el *Creador* de la Bot.`,
-        owner: `✯ Hola, este comando solo puede ser utilizado por el *Creador* de la Bot y *Sub Bots*.`,
-        mods: `✯ Hola, este comando solo puede ser utilizado por los *Moderadores* de la Bot.`,
-        premium: `✯ Hola, este comando solo puede ser utilizado por Usuarios *Premium*.`,
-        group: `✯ Hola, este comando solo puede ser utilizado en *Grupos*.`,
-        private: `✯ Hola, este comando solo puede ser utilizado en mi Chat *Privado*.`,
-        admin: `✯ Hola, este comando solo puede ser utilizado por los *Administradores* del Grupo.`,
-        botAdmin: `✯ Hola, la bot debe ser *Administradora* para ejecutar este Comando.`,
-        unreg: `┏━━━━━━━━━━━━━━━━━━━━━━━✨🌸✨━━━━━━━━━━━━━━━━━━━━━━━┓
-   𝑯𝒐𝒍𝒂, 𝒑𝒂𝒓𝒂 𝒖𝒔𝒂𝒓 𝒆𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒅𝒆𝒃𝒆𝒔 𝒆𝒔𝒕𝒂𝒓 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒐!
-   𝑷𝒂𝒓𝒂 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓𝒕𝒆 𝒖𝒔𝒂: /𝒓𝒆𝒈 𝒏𝒐𝒎𝒃𝒓𝒆.𝒆𝒅𝒂𝒅
-   𝑬𝒋𝒆𝒎𝒑𝒍𝒐: /𝒓𝒆𝒈 𝑴𝒂𝒔𝒉𝒂𝑶𝑭𝑪.18
-┗━━━━━━━━━━━━━━━━━━━━━━━✨🌸✨━━━━━━━━━━━━━━━━━━━━━━━┛`,
-        restrict: `✯ Hola, esta característica está *deshabilitada.*`  
+        rowner: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA POR MI CREADOR!!```", 
+        owner: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA POR MI DESARROLLADOR!!```", 
+        mods: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA POR MIS DESARROLLADORES!!```", 
+        premium: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO ES PARA USUARIOS PREMIUM!!```", 
+        group: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCION SOLO PUEDE SER EJECUTADA EN GRUPOS!!```", 
+        private: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA EN CHAT PRIVADO!!```", 
+        admin: "```:⁖֟⊱┈֟፝❥ ¡¡ESTE COMANDO SOLO PUEDE SER USADO POR ADMINS!!```", 
+        botAdmin: "```:⁖֟⊱┈֟፝❥ ¡¡PARA USAR ESTA FUNCIÓN DEBO SER ADMIN DEL GRUPO!!```", 
+        unreg: "```:⁖֟⊱┈֟፝❥ ¡¡NECESITAS ESTAR REGISTRADO(A) PARA USAR ESTE COMANDO, ESCRIBE #reg PARA REGISTRARTE!!```",
+        restrict: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA CARACTERÍSTICA ESTA DESACTIVADA!!```"
     }[type]
     if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))
 }
