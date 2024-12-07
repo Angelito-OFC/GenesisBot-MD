@@ -1,12 +1,7 @@
 import axios from "axios";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    return conn.reply(
-      m.chat,
-      `Envía el comando con el formato: ${usedPrefix}${command} <text>\n\nEjemplo: ${usedPrefix}${command} paisaje hermoso`,
-      m
-    );
+  if (!text) return conn.reply(m.chat,`🤍 Ejemplo: ${usedPrefix}${command} paisaje hermoso`, m, fake)
   }
   await m.react('🕓')
 
