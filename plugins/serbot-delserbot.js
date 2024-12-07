@@ -11,7 +11,7 @@ let numerxd = jidNormalizedUser(who);
 
 try {
 await fs.rmdir("./sessions/" + numerxd, { recursive: true, force: true })
-await parentw.sendMessage(m.chat, { text: '✦ Sub-Bot eliminado.' }, { quoted: m })
+await parentw.sendMessage(m.chat, { text: '🤍 Sub-Bot eliminado.' }, { quoted: m })
 } catch(err) {
 if (err.code === 'ENOENT' && err.path === `./sessions/${uniqid}`) {
 await parentw.sendMessage(m.chat, { text: "No cuentas con ninguna sesión de Sub-Bot." }, { quoted: m })
