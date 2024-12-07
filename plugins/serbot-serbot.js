@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     };
 };
 
-handler.help = handler.tags = ["jadibot"];
+handler.help = handler.tags = ["serbot"];
 handler.command = /^(jadibot|code|serbot)$/i;
 handler.premium = false;
 export default handler;
