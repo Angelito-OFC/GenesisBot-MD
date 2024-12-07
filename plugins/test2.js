@@ -25,7 +25,7 @@ let handler = async (m, { conn, text, args, groupMetadata }) => {
     }
 
     if (!args[0]) {
-        return conn.reply(m.chat, `🤍 Utilice el comando con opciones:\n1. \`gcsider --list\` para enumerar los miembros inactivos\n2. \`gcsider --kick\` para expulsar a miembros inactivos`, m)
+        return conn.reply(m.chat, `🤍 Utilice el comando con opciones:\n1. \`inactivos list\` para enumerar los miembros inactivos\n2. \`inactivos kick\` para expulsar a miembros inactivos`, m)
     }
 
     if (args[0] === 'list') {
@@ -60,7 +60,7 @@ let handler = async (m, { conn, text, args, groupMetadata }) => {
 
 handler.help = ['sider']
 handler.tags = ['group']
-handler.command = /^(sider|gcsider)$/i
+handler.command = /^(inactivos|gcinactivos)$/i
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
