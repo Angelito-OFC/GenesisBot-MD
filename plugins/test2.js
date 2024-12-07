@@ -32,7 +32,7 @@ let handler = async (m, { conn, text, args, groupMetadata }) => {
         if (total === 0) return conn.reply(m.chat, `🤍 *No hay bandos en este grupo.*`, m)
         
         const groupName = await conn.getName(m.chat)
-        const message = `*${total}/${member.length}* anggota grup *${groupName}* adalah sider:\n${sider.map(v => '  ○ @' + v.replace(/@.+/, '')).join('\n')}`
+        const message = `*${total}/${member.length}* grupo *${groupName}* Lista de inactivos\n${sider.map(v => '  ○ @' + v.replace(/@.+/, '')).join('\n')}`
 
         return conn.reply(m.chat, message, m, {
             contextInfo: {
