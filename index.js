@@ -172,7 +172,7 @@ if (!opts['test']) {
 }
 
 async function clearTmp() {
-  const tmp = [tmpdir(), join(__dirname, '../tmp')]
+  const tmp = [tmpdir(), join(__dirname, './tmp')]
   const filename = []
   tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 
