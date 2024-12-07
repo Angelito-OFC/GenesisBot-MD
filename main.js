@@ -25,6 +25,23 @@ import store from './lib/store.js'
 const { DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, Browsers, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 import readline, { createInterface } from 'readline'
 import NodeCache from 'node-cache'
+
+let __dirname = dirname(fileURLToPath(import.meta.url))
+let require = createRequire(__dirname)
+let { say } = cfonts
+
+say('Genesis\nAi', {
+  font: 'chrome',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+
+say('Developed By • Angel-OFC\nTeam starcore\nTeam Galaxy', {
+  font: 'console',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+
 const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
