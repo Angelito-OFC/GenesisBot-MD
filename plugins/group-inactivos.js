@@ -1,3 +1,7 @@
+/* 
+- Inactivos etiqueta y Kick By Angel-OFC 
+- https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y
+*/
 let handler = async (m, { conn, text, args, groupMetadata }) => {
     await conn.sendPresenceUpdate('composing', m.chat)
 
