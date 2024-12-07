@@ -434,7 +434,7 @@ export async function handler(chatUpdate) {
   }
 }
 
-global.dfail = (type, m, conn, usedPrefix) => {
+global.dfail = (type, m, conn) => {
     let msg = {
         rowner: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA POR MI CREADOR!!```", 
         owner: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA FUNCIÓN SOLO PUEDE SER USADA POR MI DESARROLLADOR!!```", 
@@ -447,8 +447,7 @@ global.dfail = (type, m, conn, usedPrefix) => {
         unreg: "```:⁖֟⊱┈֟፝❥ ¡¡NECESITAS ESTAR REGISTRADO(A) PARA USAR ESTE COMANDO, ESCRIBE #reg PARA REGISTRARTE!!```",
         restrict: "```:⁖֟⊱┈֟፝❥ ¡¡ESTA CARACTERÍSTICA ESTA DESACTIVADA!!```"
     }[type]
-    if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))
-}
+    if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
