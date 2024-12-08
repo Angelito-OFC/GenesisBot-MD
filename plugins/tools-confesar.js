@@ -42,8 +42,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             contextInfo: {
                 mentionedJid: [dari],
                 externalAdReply: {
-                    title: 'R E S P U E S T A - G E N E S I S',
-                    body: '¡Gracias por usar el servicio de confesiones!',
+                    title: 'C O N F E S A R - G E N E S I S',
+                    body: '¡responder! .respuesta (id) (Mensaje)',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                     thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
