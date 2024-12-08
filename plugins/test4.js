@@ -1,4 +1,4 @@
-/* import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 	if (!text) throw `*Usage : ${usedPrefix + command} url*\n\nExample: ${usedPrefix + command} https://open.spotify.com/track/7p30D2KjK2XW7YUvI6nH3o\n\n*Tips :* Untuk mencari link spotify, bisa juga dengan command *${usedPrefix}spotsearch*`
@@ -29,4 +29,4 @@ handler.command = /^(spotifydl)$/i
 
 handler.premium = true
 
-export default handler */
+export default handler
