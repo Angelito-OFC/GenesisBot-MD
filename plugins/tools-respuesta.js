@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     pesan = pesan.trim();
     
     // Verificar que exista el ID en la base de datos
-    if (!conn.menfess[id]) throw m.reply(`*🤍 Error:* No se encontró ningún mensaje con el ID *${id}*.`);
+    if (!conn.menfess || !conn.menfess[id]) throw m.reply(`*🤍 Error:* No se encontró ningún mensaje con el ID *${id}*.`);
     
     let { dari, penerima } = conn.menfess[id];
     
@@ -21,32 +21,35 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let teks = `Hola, recibiste una respuesta a tu mensaje anónimo.\n\n*ID:* ${id}\n*Respuesta:* \n\n${pesan}`.trim();
     
     try {
-        await conn.relayMessage(dari, {
-            extendedTextMessage: {
-                text: teks,
-                contextInfo: {
-                    mentionedJid: [dari],
-                    externalAdReply: {
-                        title: 'R E S P U E S T A - G E N E S I S',
-                        body: '¡Gracias por usar el servicio de confesiones!',
-                        mediaType: 1,
-                        previewType: 0,
-                        renderLargerThumbnail: true,
-                        thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
-                        sourceUrl: 'https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y'
-                    }
+        // Enviar el mensaje al remitente original
+        let sentMessage = await conn.sendMessage(dari, {
+            text: teks,
+            contextInfo: {
+                mentionedJid: [dari],
+                externalAdReply: {
+                    title: 'R E S P U E S T A - G E N E S I S',
+                    body: '¡Gracias por usar el servicio de confesiones!',
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y'
                 }
             }
         });
-        m.reply(`*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:* ${id}`);
         
-        // Actualizar el estado del mensaje original
-        conn.menfess[id].status = true;
+        if (sentMessage) {
+            m.reply(`*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:* ${id}`);
+            
+            // Actualizar el estado del mensaje original
+            conn.menfess[id].status = true;
+        } else {
+            throw new Error('No se pudo enviar el mensaje.');
+        }
     } catch (e) {
         console.error(e);
-        m.reply('❌ Ocurrió un error al enviar la respuesta.');
+        m.reply('❌ Ocurrió un error al enviar la respuesta. Asegúrate de que el número es válido y que el remitente puede recibir mensajes.');
     }
-}
+};
 
 handler.tags = ['tools'];
 handler.help = ['respuesta'].map(v => v + ' <id mensaje>');
