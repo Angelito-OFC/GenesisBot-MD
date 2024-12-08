@@ -47,6 +47,6 @@ await m.react('🛒')
 
 handler.help = ['tiendatk']
 handler.tags = ['tk']
-handler.command = ['tiendatk'] 
+handler.command = /^(tiendatk|tkprecios)$/i 
 
 export default handler
