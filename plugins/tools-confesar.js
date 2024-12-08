@@ -1,26 +1,26 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    conn.menfess = conn.menfess ? conn.menfess : {}; // Aseguramos que conn.menfess esté inicializado
+    conn.menfess = conn.menfess ? conn.menfess : {};
     if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero mensaje\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]} Hola.`);
     
     let split = text.trim().split(/ (.+)/); // Divide el texto en dos partes: número y mensaje
-    let jid = split[0]; // El primer elemento es el número
-    let pesan = split[1]; // El resto es el mensaje
+    let jid = split[0]; 
+    let pesan = split[1]; 
 
     if (!jid || !pesan) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero mensaje\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]} Hola.`);
     
-    jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net'; // Formateamos el número
-    let data = (await conn.onWhatsApp(jid))[0] || {}; // Verificamos si el número está registrado
+    jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net'; 
+    let data = (await conn.onWhatsApp(jid))[0] || {}; 
     if (!data.exists) throw m.reply('🤍 El número no está registrado en WhatsApp.');
     if (jid == m.sender) throw m.reply('🤍 No puedes mandarte un mensaje a ti mismo.');
     
     let mf = Object.values(conn.menfess).find(mf => mf.status === true);
-    if (mf) return !0; // Si ya existe un mensaje, no procesamos más
+    if (mf) return !0;
     
-    let id = Math.floor(1000 + Math.random() * 9000); // Generamos un ID aleatorio
+    let id = Math.floor(1000 + Math.random() * 9000); 
     let teks = `*Hola* @${data.jid.split("@")[0]}, *recibiste un mensaje de confesión.*\n*Para* responder\n*Ejemplo: .respuesta <id> <Mensaje>*\n\n*\`ID:\`* *${id}*\n*\`MENSAJE:\`* \n\n${pesan}`.trim();
     
     try {
-        // Enviamos el mensaje de confesión
+        
         let sentMessage = await conn.sendMessage(data.jid, {
             text: teks,
             contextInfo: {
@@ -36,14 +36,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             }
         });
         
-        // Si el mensaje se envió correctamente, guardamos la información en conn.menfess
+        
         if (sentMessage) {
             conn.menfess[id] = {
                 id,
                 dari: m.sender,
                 penerima: data.jid,
                 pesan: pesan,
-                status: false // El mensaje no ha sido respondido aún
+                status: false 
             };
             return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:*' + ` *${id}*`, m, { quoted: m });
         }
@@ -55,7 +55,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 handler.tags = ['tools'];
-handler.help = ['mfs'].map(v => v + ' <número mensaje>');
+handler.help = ['confesar'].map(v => v + ' <número mensaje>');
 handler.command = /^(mfs|confesar|memfes|confes)$/i;
 handler.register = true;
 handler.private = true;
