@@ -1,5 +1,10 @@
 let handler = async(m, { conn, usedPrefix, command }) => {
 let name = await conn.getName(m.sender)
+let imagenes = ["https://pomf2.lain.la/f/dye13c4r.jpg",
+"https://pomf2.lain.la/f/fgyvoz38.jpg",
+"https://pomf2.lain.la/f/jq33eb3h.jpg"]
+
+let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 
     let don = `*Bienvenid@ ${name} a nuestra tienda virtual, donde podrás encontrar los precios y servicios ofrecidos por TK-Hosting.*
 
@@ -14,7 +19,7 @@ let name = await conn.getName(m.sender)
 `
 let img = 'https://i.ibb.co/jHctydb/Genesis-Bot.jpg'
 
-await conn.sendMessage(m.chat, { text: data,
+await conn.sendMessage(m.chat, { text: don,
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: false, 
@@ -24,11 +29,11 @@ isForwarded: false,
 title: `ＴＫ － ＴＩＥＮＤＡ ＶＩＲＴＵＡＬ 🛒`,
 body: `¡El servicio ideal para llevar tus proyectos al siguiente nivel!`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://tinyurl.com/2awg2bch', 
+thumbnailUrl: img, 
 sourceUrl: 'https://dash.tk-joanhost.com'}}},
 { quoted: m})
 
-conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
+// conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
 }
 
 handler.help = ['redes']
