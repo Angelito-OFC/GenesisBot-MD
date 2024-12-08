@@ -50,8 +50,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 handler.tags = ['tools'];
-handler.help = ['mfs'].map(v => v + ' <número mensaje>');
-handler.command = /^(mfs|confesar|memfes|confes)$/i;
+handler.help = ['ngl'].map(v => v + ' <número mensaje>');
+handler.command = /^(ngl|nglanonimo)$/i;
 handler.register = true;
 handler.private = true;
 
