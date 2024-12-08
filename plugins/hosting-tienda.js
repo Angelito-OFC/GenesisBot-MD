@@ -21,7 +21,7 @@ isForwarded: false,
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `[ 𝗖𝗛𝗔𝗧𝗚𝗣𝗧 - 𝗗𝗘𝗠𝗢 ]`,
+title: `ＴＫ － ＴＩＥＮＤＡ ＶＩＲＴＵＡＬ 🛒`,
 body: `¡El servicio ideal para llevar tus proyectos al siguiente nivel!`,
 "previewType": "PHOTO",
 thumbnailUrl: 'https://tinyurl.com/2awg2bch', 
