@@ -1,6 +1,7 @@
 let handler = async(m, { conn, usedPrefix, command }) => {
+let name = await conn.getName(m.sender)
 
-    let don = `
+    let don = `${name}
 🐈‍⬛ 𝗥 𝗘 𝗗 𝗘 𝗦  𝗚 𝗘 𝗡 𝗘 𝗦 𝗜 𝗦 🐈‍⬛
 
 » 𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗗𝗘𝗟 𝗕𝗢𝗧
