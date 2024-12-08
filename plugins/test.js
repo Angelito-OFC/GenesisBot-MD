@@ -14,7 +14,7 @@ let tgl = d.toLocaleDateString(locale, {
     })
 let namaUser = await conn.getName(m.sender) ? await conn.getName(m.sender) : 'Orang'
 let cek
-if (m.sender === nomorown + '@s.whatsapp.net'){
+if (m.sender ===  + '@s.whatsapp.net'){
  cek = 'Kyz'
  } else {
  cek = namaUser
