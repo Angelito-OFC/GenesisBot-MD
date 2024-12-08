@@ -25,7 +25,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             contextInfo: {
                 mentionedJid: [data.jid],
                 externalAdReply: {
-                    title: 'C O N F E S A R',
+                    title: 'C O N F E S A R - G E N E S I S',
                     body: '¡responder! .respuesta (id) (Mensaje)',
                     mediaType: 1,
                     previewType: 0,
