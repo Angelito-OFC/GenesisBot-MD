@@ -17,7 +17,7 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 🛒 *\`$42.60\`* TK-Coins 10600+20%
 
 `
-await m.react('⛱️') 
+await m.react('🛒') 
 
  conn.sendMessage(m.chat, {
         text: don,
