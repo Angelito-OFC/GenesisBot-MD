@@ -49,6 +49,22 @@ GenesisBot-MD recibe **soporte semanal** si llegas a ver un error **repetitivame
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaoZXbk6RGJNYQVP8r27)
 - **Texto:** `Genesis diponible aqui`
 
+### **`🎇 Hosting Py:`**
+<a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+
+<details>
+ <summary><b>Click para mostrar los links</b></summary>
+
+- **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
+- **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
+- **Registrarse:** [`Aquí`](https://dahs.hostingpy.shop/register)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+- **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
+- **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
+</details>
+
+***
+
 > [!IMPORTANT]
 > **Si planeas instalar o extraer el bot, recuerda que su venta está estrictamente prohibida bajo cualquier circunstancia. El uso del bot con fines de venta constituye una violación de los términos de nuestro repositorio y se tomarán las medidas necesarias contra quienes incumplan estas condiciones.**
 
