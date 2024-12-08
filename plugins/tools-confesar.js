@@ -19,24 +19,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let id = Math.floor(1000 + Math.random() * 9000); // Genera un número aleatorio de 4 dígitos
     let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje de confesión.\n\n*ID:* ${id}\n*Mensaje:* \n${pesan}\n\n¿Quieres responder a este mensaje? Simplemente escribe tu respuesta y envíala. Más tarde la transmitiré al remitente.`.trim();
     
-    await conn.relayMessage(data.jid, {
-        extendedTextMessage: {
-            text: teks,
-            contextInfo: {
-                mentionedJid: [data.jid],
-                externalAdReply: {
-                    title: 'C O N F E S A R',
-                    body: '¡responder!',
-                    mediaType: 1,
-                    previewType: 0,
-                    renderLargerThumbnail: true,
-                    thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
-                    sourceUrl: ''
-                }
-            }
-        }
-    }, {}).then(() => {
+    try {
+        // Usa sendMessage como prueba
+        await conn.sendMessage(jid, { text: teks, mentions: [data.jid] });
         m.reply(`*🤍 Mensaje enviado con éxito.*\n\n*ID del mensaje:* ${id}`);
+        
         conn.menfess[id] = {
             id,
             dari: m.sender,
@@ -44,8 +31,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             pesan: pesan,
             status: false
         };
-        return !0;
-    });
+    } catch (e) {
+        console.error(e);
+        m.reply('❌ Ocurrió un error al enviar el mensaje.');
+    }
 }
 
 handler.tags = ['tools'];
