@@ -18,14 +18,14 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 
 *\`PRECIOS EN SOLES 🇵🇪\`*
 
-*S/4** TK-Coins 250
-*S/8** TK-Coins 500
-*S/16* TK-Coins 1000 
-*S/24* TK-Coins 1500 
-*S/32* TK-Coins 2000
-*S/40* TK-Coins 2500
-*S/84* TK-Coins 5000
-*S/168* TK-Coins 10600`
+🛒 *\`S/4\`* TK-Coins 250
+🛒 *\`S/8\`* TK-Coins 500
+🛒 *\`S/16\`* TK-Coins 1000 
+🛒 *\`S/24\`* TK-Coins 1500 
+🛒 *\`S/32\`* TK-Coins 2000
+🛒 *\`S/40\`* TK-Coins 2500
+🛒 *\`S/84\`* TK-Coins 5000
+🛒 *\`S/168\`* TK-Coins 10600`
 await m.react('🛒') 
 
  conn.sendMessage(m.chat, {
