@@ -30,7 +30,6 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 *Contactos y Compras 🛒*
 - wa.me/51910234457 (Propietario)`
 await m.react('🛒') 
-
  conn.sendMessage(m.chat, {
         text: don,
         contextInfo: {
