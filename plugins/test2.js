@@ -1,6 +1,4 @@
-//Thanks to https://github.com/NajmyW
-
-/* import { randomBytes } from "crypto"
+import { randomBytes } from "crypto"
 import axios from "axios"
 
 let handler = async (m, { conn, text }) => {
@@ -50,4 +48,4 @@ return res.map((a) => a.choices[0].delta.content).join("")
 console.error("Error parsing JSON:",error)
 return 404
 }
-} */
+}
