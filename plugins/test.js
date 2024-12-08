@@ -44,8 +44,8 @@ let handler = async (m, { text, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['bingai '];
-handler.tags = ['internet'];
-handler.command = /^bingai$/i; 
+handler.help = ['bing *<texto>*'];
+handler.tags = ['tools'];
+handler.command = /^bing$/i; 
 
 export default handler;
