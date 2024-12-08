@@ -31,7 +31,7 @@ await m.react('✖️')
 
 handler.help = ['ia *<petición>*']
 handler.tags = ['tools']
-handler.command = /^(miku|ia|chatgpt|gpt)$/i
+handler.command = /^(ia|chatgpt|gpt)$/i
 handler.register = true
 
 export default handler
