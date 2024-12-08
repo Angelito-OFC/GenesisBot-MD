@@ -3,8 +3,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero mensaje\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]} Hola.`);
     
     let split = text.trim().split(/ (.+)/); // Divide el texto en dos partes: número y mensaje
-    let jid = split[0]; // El primer elemento es el número
-    let pesan = split[1]; // El resto es el mensaje
+    let jid = split[0];
+    let pesan = split[1];
     
     if (!jid || !pesan) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero mensaje\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]} Hola.`);
     
@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let mf = Object.values(conn.menfess).find(mf => mf.status === true);
     if (mf) return !0;
     
-    let id = Math.floor(1000 + Math.random() * 9000); // Genera un número aleatorio de 4 dígitos
+    let id = Math.floor(1000 + Math.random() * 9000); 
     let teks = `*Hola* @${data.jid.split("@")[0]}, *recibiste un mensaje de confesión.*\n*Para* responder\n*Ejemplo: .respuesta <id> <Mensaje>*\n\n*\`ID:\`* *${id}*\n*\`MENSAJE:\`* \n\n${pesan}`.trim();
     
     await conn.relayMessage(data.jid, {
