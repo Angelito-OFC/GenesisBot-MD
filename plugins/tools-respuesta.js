@@ -38,7 +38,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         });
         
         if (sentMessage) {
-            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:* ${id}', m, fake);
+            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:*' +` ${id}`, m, fake);
             
 
             conn.menfess[id].status = true;
