@@ -20,7 +20,7 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 await m.react('⛱️') 
 
  conn.sendMessage(m.chat, {
-        text: text,
+        text: don,
         contextInfo: {
         externalAdReply: {
         title: 'ＴＫ － ＴＩＥＮＤＡ ＶＩＲＴＵＡＬ 🛒',
