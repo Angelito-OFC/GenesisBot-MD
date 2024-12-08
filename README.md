@@ -52,8 +52,6 @@ GenesisBot-MD recibe **soporte semanal** si llegas a ver un error **repetitivame
 ### **`🎇 Hosting Py:`**
 <a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
 
-<details>
- <summary><b>Click para mostrar los links</b></summary>
 
 - **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
 - **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
@@ -61,7 +59,7 @@ GenesisBot-MD recibe **soporte semanal** si llegas a ver un error **repetitivame
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 - **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 - **Contacto:** [`AdrianOficial`](https://wa.me/595976126756)
-</details>
+
 
 ***
 
