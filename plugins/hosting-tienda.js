@@ -13,6 +13,21 @@ let name = await conn.getName(m.sender)
 
 `
 let img = 'https://i.ibb.co/jHctydb/Genesis-Bot.jpg'
+
+await conn.sendMessage(m.chat, { text: data,
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: false, 
+"externalAdReply": {
+"showAdAttribution": true,
+"containsAutoReply": true,
+title: `[ 𝗖𝗛𝗔𝗧𝗚𝗣𝗧 - 𝗗𝗘𝗠𝗢 ]`,
+body: `¡El servicio ideal para llevar tus proyectos al siguiente nivel!`,
+"previewType": "PHOTO",
+thumbnailUrl: 'https://tinyurl.com/2awg2bch', 
+sourceUrl: 'https://dash.tk-joanhost.com'}}},
+{ quoted: m})
+
 conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
 }
 
