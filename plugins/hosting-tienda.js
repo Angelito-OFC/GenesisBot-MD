@@ -30,7 +30,7 @@ await m.react('⛱️')
         mediaType: 1,
         renderLargerThumbnail: true
         }}},
-        { quoted: estilo})
+        { quoted: m})
 
 /* await conn.sendMessage(m.chat, { text: don,
 contextInfo:{
