@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (m.sender !== penerima) throw m.reply('🤍 No tienes permiso para responder a este mensaje.');
     
     // Construir el mensaje para el remitente original
-    let teks = `Hola, recibiste una respuesta a tu mensaje anónimo.\n\n*ID:* ${id}\n*Respuesta:* \n${pesan}\n\n¡Gracias por usar el servicio de confesiones!`.trim();
+    let teks = `Hola, recibiste una respuesta a tu mensaje anónimo.\n\n*ID:* ${id}\n*Respuesta:* \n\n${pesan}`.trim();
     
     try {
         await conn.relayMessage(dari, {
@@ -28,11 +28,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     mentionedJid: [dari],
                     externalAdReply: {
                         title: 'R E S P U E S T A - G E N E S I S',
+                        body: '¡Gracias por usar el servicio de confesiones!',
                         mediaType: 1,
                         previewType: 0,
                         renderLargerThumbnail: true,
                         thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
-                        sourceUrl: ''
+                        sourceUrl: 'https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y'
                     }
                 }
             }
