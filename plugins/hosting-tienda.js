@@ -1,28 +1,16 @@
 let handler = async(m, { conn, usedPrefix, command }) => {
 let name = await conn.getName(m.sender)
 
-    let don = `${name}
-🐈‍⬛ 𝗥 𝗘 𝗗 𝗘 𝗦  𝗚 𝗘 𝗡 𝗘 𝗦 𝗜 𝗦 🐈‍⬛
+    let don = `*Bienvenid@ ${name} a nuestra tienda virtual, donde podrás encontrar los precios y servicios ofrecidos por TK-Hosting.*
 
-» 𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗗𝗘𝗟 𝗕𝗢𝗧
-🐈‍⬛ wa.me/59897246324
+🛒 *\`$2.43\`* TK-Coins 500+10%
+🛒 *\`$4.55\`* TK-Coins 1000+10%
+🛒 *\`$6.66\`* TK-Coins 1500+10%
+🛒 *\`$8.77\`* TK-Coins 2000+10%
+🛒 *\`$10.89\`* TK-Coins 2500+10%
+🛒 *\`$21.46\`* TK-Coins 5000+15%
+🛒 *\`$42.60\`* TK-Coins 10600+20%
 
-» 𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠
-🐈‍⬛ https://www.instagram.com/usxr_angelito
-
-» 𝗧𝗛𝗥𝗘𝗔𝗗𝗦
-🐈‍⬛ https://www.threads.net/@usxr_angelito
-
-» 𝗚𝗜𝗧 𝗛𝗨𝗕
-🐈‍⬛ https://github.com/Karim-off
-
-» 𝗔𝗧𝗢𝗠 𝗕𝗜𝗢
-🐈‍⬛ https://atom.bio/genesisbotasistencia
-
-» 𝗖𝗢𝗥𝗥𝗘𝗢
-🐈‍⬛ agasistencia2@gmail.com
-
-> ${mssg.ig}
 `
 let img = 'https://i.ibb.co/jHctydb/Genesis-Bot.jpg'
 conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
