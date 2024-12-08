@@ -45,7 +45,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 pesan: pesan,
                 status: false 
             };
-            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n*IDENTIFICADOR:*' + ` *${id}*`, m, fake);
+            return conn.reply(m.chat, '*🤍 Confesión enviada con éxito.*\n*IDENTIFICADOR:*' + ` *${id}*`, m, fake);
         }
         
     } catch (e) {
