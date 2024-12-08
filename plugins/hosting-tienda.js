@@ -35,8 +35,8 @@ sourceUrl: 'https://dash.tk-joanhost.com'}}},
 // conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
 }
 
-handler.help = ['redes']
-handler.tags = ['info']
-handler.command = ['redes'] 
+handler.help = ['tiendatk']
+handler.tags = ['tk']
+handler.command = ['tiendatk'] 
 
 export default handler
