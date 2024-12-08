@@ -45,7 +45,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 pesan: pesan,
                 status: false 
             };
-            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:*' + ` *${id}*`, m, { quoted: m });
+            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n*IDENTIFICADOR:*' + ` *${id}*`, m, { quoted: m });
         }
         
     } catch (e) {
