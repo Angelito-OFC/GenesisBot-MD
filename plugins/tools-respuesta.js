@@ -1,19 +1,18 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} <id> <mensaje>\n\n*🤍 Uso:* ${usedPrefix + command} 1234 Gracias por tu confesión.`);
     
-    let split = text.trim().split(/ (.+)/); // Divide el texto en dos partes: ID y mensaje
-    let id = split[0]; // El primer elemento es el ID
-    let pesan = split[1]; // El resto es el mensaje
+    let split = text.trim().split(/ (.+)/); 
+    let id = split[0]; 
+    let pesan = split[1]; 
 
     if (!id || !pesan) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} <id> <mensaje>\n\n*🤍 Uso:* ${usedPrefix + command} 1234 Gracias por tu confesión.`);
     
     id = id.trim();
     pesan = pesan.trim();
 
-    // Agregar consola para verificar el contenido de conn.menfess
-    console.log("conn.menfess", conn.menfess); // Verifica todo el contenido de conn.menfess
     
-    // Verificar que exista el ID en la base de datos
+    console.log("conn.menfess", conn.menfess); 
+    
     if (!conn.menfess || !conn.menfess[id]) {
         throw m.reply(`*🤍 Error:* No se encontró ningún mensaje con el ID *${id}*.`);
     }
@@ -22,7 +21,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (m.sender !== penerima) throw m.reply('🤍 No tienes permiso para responder a este mensaje.');
     
-    // Construir el mensaje para el remitente original
     let teks = `*Hola, recibiste una respuesta a tu mensaje anónimo.*\n\n*\`ID:\`* *${id}*\n*\`RESPUESTA:\`* \n\n${pesan}`.trim();
     
     try {
@@ -45,7 +43,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         if (sentMessage) {
            return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID*' + ` *${id}*`, m, fake);
             
-            // Actualizar el estado del mensaje original
+            
             conn.menfess[id].status = true;
         } else {
             throw new Error('No se pudo enviar el mensaje.');
