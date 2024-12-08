@@ -17,7 +17,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (mf) return !0;
     
     let id = Math.floor(1000 + Math.random() * 9000); // Genera un número aleatorio de 4 dígitos
-    let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje de confesión.\nPara responder\nEjemplo: .respuesta <id> <Mensaje>\n\n*\`ID:\`* ${id}\n*\`MENSAJE:\`* \n\n${pesan}`.trim();
+    let teks = `*Hola* @${data.jid.split("@")[0]}, *recibiste un mensaje de confesión.*\n*Para* responder\n*Ejemplo: .respuesta <id> <Mensaje>*\n\n*\`ID:\`* ${id}\n*\`MENSAJE:\`* \n\n${pesan}`.trim();
     
     await conn.relayMessage(data.jid, {
         extendedTextMessage: {
