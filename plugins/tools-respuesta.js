@@ -9,9 +9,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     id = id.trim();
     pesan = pesan.trim();
+
+    // Agregar consola para verificar el contenido de conn.menfess
+    console.log("conn.menfess", conn.menfess); // Verifica todo el contenido de conn.menfess
     
     // Verificar que exista el ID en la base de datos
-    if (!conn.menfess || !conn.menfess[id]) throw m.reply(`*🤍 Error:* No se encontró ningún mensaje con el ID *${id}*.`);
+    if (!conn.menfess || !conn.menfess[id]) {
+        throw m.reply(`*🤍 Error:* No se encontró ningún mensaje con el ID *${id}*.`);
+    }
     
     let { dari, penerima } = conn.menfess[id];
     
