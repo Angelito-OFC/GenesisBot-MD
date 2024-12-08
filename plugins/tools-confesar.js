@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let mf = Object.values(conn.menfess).find(mf => mf.status === true)
     if (mf) return !0
     let id = Math.floor(100 + Math.random() * 900); // Genera un número aleatorio de 3 dígitos
-    let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje de confesión.\n\nID: ${id}\nMensaje: \n${pesan}\n\n¿Quieres responder a este mensaje? Simplemente escribe tu respuesta y envíala. Más tarde la transmitiré al remitente.`.trim();
+    let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje de confesión.\n\n*ID:* ${id}\n*Mensaje:* \n${pesan}\n\n¿Quieres responder a este mensaje? Simplemente escribe tu respuesta y envíala. Más tarde la transmitiré al remitente.`.trim();
     await conn.relayMessage(data.jid, {
         extendedTextMessage: {
             text: teks,
