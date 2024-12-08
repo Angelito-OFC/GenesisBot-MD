@@ -16,7 +16,16 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 🛒 *\`$21.46\`* TK-Coins 5000+15%
 🛒 *\`$42.60\`* TK-Coins 10600+20%
 
-`
+*\`PRECIOS EN SOLES 🇵🇪\`*
+
+*S/4** TK-Coins 250
+*S/8** TK-Coins 500
+*S/16* TK-Coins 1000 
+*S/24* TK-Coins 1500 
+*S/32* TK-Coins 2000
+*S/40* TK-Coins 2500
+*S/84* TK-Coins 5000
+*S/168* TK-Coins 10600`
 await m.react('🛒') 
 
  conn.sendMessage(m.chat, {
@@ -31,23 +40,6 @@ await m.react('🛒')
         renderLargerThumbnail: true
         }}},
         { quoted: m})
-
-/* await conn.sendMessage(m.chat, { text: don,
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: false, 
-"externalAdReply": {
-"showAdAttribution": true,
-"containsAutoReply": true,
-title: `ＴＫ － ＴＩＥＮＤＡ ＶＩＲＴＵＡＬ 🛒`,
-body: `¡El servicio ideal para llevar tus proyectos al siguiente nivel!`,
-"previewType": "PHOTO",
-thumbnailUrl: img, 
-sourceUrl: 'https://dash.tk-joanhost.com'}}},
-{ quoted: m}) */
-
-// conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
-}
 
 handler.help = ['tiendatk']
 handler.tags = ['tk']
