@@ -17,7 +17,6 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 🛒 *\`$42.60\`* TK-Coins 10600+20%
 
 `
-let img = 'https://i.ibb.co/jHctydb/Genesis-Bot.jpg'
 
 await conn.sendMessage(m.chat, { text: don,
 contextInfo:{
