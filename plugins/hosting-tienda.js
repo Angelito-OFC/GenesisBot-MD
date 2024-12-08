@@ -40,6 +40,7 @@ await m.react('🛒')
         renderLargerThumbnail: true
         }}},
         { quoted: m})
+}
 
 handler.help = ['tiendatk']
 handler.tags = ['tk']
