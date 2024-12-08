@@ -25,7 +25,10 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 🛒 *\`S/32\`* TK-Coins 2000
 🛒 *\`S/40\`* TK-Coins 2500
 🛒 *\`S/84\`* TK-Coins 5000
-🛒 *\`S/168\`* TK-Coins 10600`
+🛒 *\`S/168\`* TK-Coins 10600
+
+*Contactos y Compras 🛒*
+- wa.me/51910234457 (Propietario)`
 await m.react('🛒') 
 
  conn.sendMessage(m.chat, {
