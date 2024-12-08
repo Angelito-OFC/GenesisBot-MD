@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 mentionedJid: [data.jid],
                 externalAdReply: {
                     title: 'C O N F E S A R',
-                    body: '¡Para responder usa! . respuesta <id> <mensaje>',
+                    body: '¡Para responder! .respuesta <id> <mensaje>',
                     mediaType: 1,
                     previewType: 0,
                     renderLargerThumbnail: true,
