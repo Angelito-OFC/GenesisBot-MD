@@ -31,7 +31,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     previewType: 0,
                     renderLargerThumbnail: true,
                     thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
-                    sourceUrl: ''
+                    sourceUrl: '${canal}'
                 }
             }
         }
