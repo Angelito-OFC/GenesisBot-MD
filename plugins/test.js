@@ -1,4 +1,4 @@
-/* import axios from 'axios'
+import axios from 'axios'
 
 let handler = async (m, {conn, text, usedPrefix, command}) => {
 
@@ -35,4 +35,4 @@ throw 'Aduh sepertinya Furina ngga bisa kasi datanya deh馃槄'
 handler.command = ['aifurina', 'caifurina']
 handler.tags = ['ai']
 handler.command = /^((ai|cai)furina|furina?)$/i
-export default handler */
+export default handler
