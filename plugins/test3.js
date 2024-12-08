@@ -1,4 +1,4 @@
-import cheerio from 'cheerio';
+/* import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
 let handler = async (m, {
@@ -141,4 +141,4 @@ function generateList(array) {
 function addNewline(text) {
   const newText = text.replace(/â€¢/g, '\nâ€¢');
   return newText;
-}
+} */
