@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let id = Math.floor(1000 + Math.random() * 9000); 
     let teks = `*Hola* @${data.jid.split("@")[0]}, *recibiste un mensaje de confesión.*\n*Para* responder\n*Ejemplo: .respuesta <id> <Mensaje>*\n\n*\`ID:\`* *${id}*\n*\`MENSAJE:\`* \n\n${pesan}`.trim();
     
-    await conn.relayMessage(data.jid, {
+/*    await conn.relayMessage(data.jid, {
         extendedTextMessage: {
             text: teks,
             contextInfo: {
@@ -35,8 +35,25 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 }
             }
         }
-    }, {}).then(() => {
-        return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:*' + ` *${id}*`, m, fake);
+    }, {}).then(() => { */
+
+        let sentMessage = await conn.sendMessage(dari, {
+            text: teks,
+            contextInfo: {
+                mentionedJid: [dari],
+                externalAdReply: {
+                    title: 'R E S P U E S T A - G E N E S I S',
+                    body: '¡Gracias por usar el servicio de confesiones!',
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y'
+                }
+            }
+        });
+
+        if (sentMessage) {         
+         return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:*' + ` *${id}*`, m, fake);
        
         conn.menfess[id] = {
             id,
