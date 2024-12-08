@@ -1,68 +1,53 @@
-let handler = async (m, { conn, command }) => {
-    let user = global.db.data.users[m.sender];
-    const ownerNumber = '628xx'; // Nomor owner
+//Thanks to https://github.com/NajmyW
 
-    if (command === 'demoprem') {
-        if (m.sender === `${ownerNumber}@s.whatsapp.net`) {
-            m.reply(`✅ *Propietario de la demostración gratuita*\n\nPuedes activar la demostración en cualquier momento sin límites.`);
-            return;
-        }
-        if (user.demoUsed) {
-            return m.reply(`⚠️ Ha utilizado la demostración premium antes o la canceló. No puedes reclamar otra demostración. Comuníquese con el propietario para comprar la prima.`);
-        }
-        let demoDuration = 7; //7hari
-        let demoTime = 86400000 * demoDuration;
-        let now = new Date();
-        user.premium = true;
-        user.premiumTime = now.getTime() + demoTime;
-        user.demoUsed = true;
+import { randomBytes } from "crypto"
+import axios from "axios"
 
-        let demoEndDate = new Date(user.premiumTime).toLocaleDateString();
-
-        await m.reply(`✅ *Demostración Premium activa* \n\n*Nama:* ${user.name}\n*Durasi:* ${demoDuration} Hari\n*Mulai:* ${now.toLocaleDateString()}\n*Berakhir:* ${demoEndDate}`);
-        setTimeout(async () => {
-            if (user.premium && user.premiumTime <= Date.now()) {
-                user.premium = false;
-                user.premiumTime = 0;
-
-                const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:Await Owner\nTEL;TYPE=CELL;waid=628xxx:+628xxx\nEND:VCARD`;
-
-                conn.sendMessage(m.chat, {
-                    contacts: {
-                        displayName: 'Await Owner',
-                        contacts: [{ vcard }],
-                    },
-                });
-
-                conn.reply(m.sender, `⚠️ *Finaliza el período de demostración premium*\n\nHai ${user.name}, Su período de demostración premium ha expirado. Comuníquese con el propietario para comprar la prima.`, null);
-            }
-        }, demoTime);
-    } else if (command === 'canceldemo') {
-        if (m.sender === `${ownerNumber}@s.whatsapp.net`) {
-            m.reply(`✅ *El propietario es libre de cancelar la demostración*\n\nPuede cancelar la demostración en cualquier momento sin límites.`);
-            return;
-        }
-
-        if (!user.premium || !user.demoUsed) {
-            return m.reply(`⚠️ Actualmente no estás en el período de demostración premium.`);
-        }
-        user.premium = false;
-        user.premiumTime = 0;
-
-        const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:Await Owner\nTEL;TYPE=CELL;waid=628xxx:+628xxx\nEND:VCARD`;
-
-        await conn.sendMessage(m.chat, {
-            contacts: {
-                displayName: 'Await Owner',
-                contacts: [{ vcard }],
-            },
-        });
-
-        await m.reply(`⚠️ *Demostración premium cancelada*\n\nSu demostración premium ha sido cancelada. No puedes reclamar otra demostración. Comuníquese con el propietario para comprar la prima.`);
+let handler = async (m, { conn, text }) => {
+    if (!text) throw 'how i can assist you today??';
+    try {
+        conn.reply(m.chat, wait, m);
+        let data = await chatGpt(text)
+        conn.reply(m.chat, data, m);
+    } catch (err) {
+        m.reply('error cik:/ ' + err);
     }
-};
+}
 
-handler.help = ['demoprem', 'canceldemo'];
-handler.tags = ['premium'];
-handler.command = /^(demoprem|canceldemo)$/i;
+handler.command = handler.help = ['gptdemo'];
+handler.tags = ['gptdemo'];
+handler.limit = 3;
+
 export default handler;
+
+async function chatGpt(query){
+try {
+
+const { id_ }= (await axios.post("https://chat.chatgptdemo.net/new_chat",{user_id: "crqryjoto2h3nlzsg"},{headers:{
+"Content-Type": "application/json",
+
+}})).data
+
+const json = {"question":query,"chat_id": id_,"timestamp":new Date().getTime()}
+
+
+const { data } = await axios.post("https://chat.chatgptdemo.net/chat_api_stream",json,{headers:{
+"Content-Type": "application/json",
+
+}})
+const cek = data.split("data: ")
+
+let res = []
+
+for (let i=1; i < cek.length; i++){
+if (cek[i].trim().length > 0){
+res.push(JSON.parse(cek[i].trim()))
+}}
+
+return res.map((a) => a.choices[0].delta.content).join("")
+
+} catch (error) {
+console.error("Error parsing JSON:",error)
+return 404
+}
+}
