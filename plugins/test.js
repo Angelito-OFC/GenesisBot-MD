@@ -35,7 +35,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
   undefined[m.sender] = text;
  
-    let resultMessage = `*${aiResponse}\n\n${searchSummary}`;
+    let resultMessage = `${aiResponse}\n\n${searchSummary}`;
 
     m.reply(resultMessage);
   } catch (err) {
