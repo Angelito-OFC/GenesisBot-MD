@@ -8,6 +8,8 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 
     let don = `*Bienvenid@ \`${name}\` a nuestra tienda virtual, donde podrás encontrar los precios ofrecidos por TK-Hosting.*
 
+*\`PRECIOS EN PAYPAL 💵\`*
+
 🛒 *\`$2.43\`* TK-Coins 500
 🛒 *\`$4.55\`* TK-Coins 1000
 🛒 *\`$6.66\`* TK-Coins 1500
