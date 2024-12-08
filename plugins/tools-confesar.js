@@ -2,7 +2,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.menfess = conn.menfess ? conn.menfess : {};
     if (!text) throw m.reply(`*🤍 Ejemplo:*\n\n${usedPrefix + command} numero mensaje\n\n*🤍 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]} Hola.`);
     
-    let split = text.trim().split(/ (.+)/); // Divide el texto en dos partes: número y mensaje
+    let split = text.trim().split(/ (.+)/); 
     let jid = split[0]; 
     let pesan = split[1]; 
 
