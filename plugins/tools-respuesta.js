@@ -27,7 +27,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 contextInfo: {
                     mentionedJid: [dari],
                     externalAdReply: {
-                        title: 'R E S P U E S T A',
+                        title: 'R E S P U E S T A - G E N E S I S',
                         mediaType: 1,
                         previewType: 0,
                         renderLargerThumbnail: true,
