@@ -21,7 +21,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (m.sender !== penerima) throw m.reply('🤍 No tienes permiso para responder a este mensaje.');
     
-    let teks = `*Hola, recibiste una respuesta a tu mensaje anónimo.*\n\n*\`ID:\`* *${id}*\n*\`RESPUESTA:\`* \n\n${pesan}`.trim();
+    let teks = `*Hola, recibiste una respuesta a tu mensaje anónimo.*\n\n*\`IDENTIFICADOR:\`* *${id}*\n*\`RESPUESTA:\`* \n\n${pesan}`.trim();
     
     try {
         
