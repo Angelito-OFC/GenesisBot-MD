@@ -6,7 +6,7 @@ let imagenes = ["https://pomf2.lain.la/f/dye13c4r.jpg",
 
 let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 
-    let don = `*Bienvenid@ ${name} a nuestra tienda virtual, donde podrás encontrar los precios y servicios ofrecidos por TK-Hosting.*
+    let don = `*Bienvenid@ \`${name}\` a nuestra tienda virtual, donde podrás encontrar los precios y servicios ofrecidos por TK-Hosting.*
 
 🛒 *\`$2.43\`* TK-Coins 500+10%
 🛒 *\`$4.55\`* TK-Coins 1000+10%
