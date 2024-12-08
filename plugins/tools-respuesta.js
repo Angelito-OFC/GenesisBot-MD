@@ -23,10 +23,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (m.sender !== penerima) throw m.reply('🤍 No tienes permiso para responder a este mensaje.');
     
     // Construir el mensaje para el remitente original
-    let teks = `Hola, recibiste una respuesta a tu mensaje anónimo.\n\n*ID:* ${id}\n*Respuesta:* \n\n${pesan}`.trim();
+    let teks = `*Hola, recibiste una respuesta a tu mensaje anónimo.*\n\n*\`ID:\`* *${id}*\n*\`RESPUESTA:\`* \n\n${pesan}`.trim();
     
     try {
-        // Enviar el mensaje al remitente original
+        
         let sentMessage = await conn.sendMessage(dari, {
             text: teks,
             contextInfo: {
@@ -43,7 +43,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         });
         
         if (sentMessage) {
-            m.reply(`*🤍 Respuesta enviada con éxito.*\n\n*ID del mensaje original:* ${id}`);
+           return conn.reply(m.chat, '*🤍 Respuesta enviada con éxito.*\n\n*ID*' + ` *${id}*`, m, fake);
             
             // Actualizar el estado del mensaje original
             conn.menfess[id].status = true;
