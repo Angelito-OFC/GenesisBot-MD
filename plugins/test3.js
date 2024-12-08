@@ -70,7 +70,7 @@ let handler = async (m, {
         }
     }
 }
-handler.help = handler.command = ['modapk']
+handler.help = handler.command = ['playapk']
 handler.tags = ['downloader']
 export default handler
 
