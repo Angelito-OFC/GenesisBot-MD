@@ -18,7 +18,32 @@ let img = imagenes[Math.floor(Math.random() * imagenes.length)]
 
 `
 
-await conn.sendMessage(m.chat, { text: don,
+        let sentMessage = await conn.sendMessage(data.jid, {
+            text: don,
+            contextInfo: {
+                mentionedJid: [data.jid],
+                externalAdReply: {
+                    title: 'ＴＫ － ＴＩＥＮＤＡ ＶＩＲＴＵＡＬ 🛒',
+                    body: '¡El servicio ideal para llevar tus proyectos al siguiente nivel!',
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    thumbnailUrl: img,
+                    sourceUrl: 'https://dash.tk-joanhost.com'
+                }
+            }
+        });
+
+
+        if (sentMessage) {
+            conn.menfess[id] = {
+                id,
+                dari: m.sender,
+                penerima: data.jid,
+                pesan: pesan,
+                status: false 
+            };
+
+/* await conn.sendMessage(m.chat, { text: don,
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: false, 
@@ -30,7 +55,7 @@ body: `¡El servicio ideal para llevar tus proyectos al siguiente nivel!`,
 "previewType": "PHOTO",
 thumbnailUrl: img, 
 sourceUrl: 'https://dash.tk-joanhost.com'}}},
-{ quoted: m})
+{ quoted: m}) */
 
 // conn.sendFile(m.chat, img, 'img.jpg', don, fkontak, null, rcanal)
 }
