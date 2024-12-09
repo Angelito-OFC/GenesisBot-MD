@@ -11,7 +11,7 @@ async function reportError(e) {
 await m.reply(`❌ Ocurrió un error.`)
 console.log(e)
 }
-let thumb = icons
+let thumb = 'https://pomf2.lain.la/f/q4wfr9p.jpg'
 let pp
 
 switch (true) {     
