@@ -169,7 +169,7 @@ if (!opts['test']) {
     setInterval(async () => {
       if (global.db.data) await global.db.write();
       if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', 'serbot'], tmp.forEach((filename) => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
-    }, 30 * 1000)
+    }, 60 * 1000)
   }
 }
 
