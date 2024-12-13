@@ -374,7 +374,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.corazones)
-                        conn.reply(m.chat, `Utilizaste *${+m.limit}* 🤍`, m, null, fake)
+                        conn.reply(m.chat, `Utilizaste *${+m.corazones}* 🤍`, m, null, fake)
                 }
                 break
             }
