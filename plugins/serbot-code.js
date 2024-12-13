@@ -8,7 +8,7 @@ import pino from 'pino'
 import * as ws from 'ws'
 const { CONNECTING } = ws
 import { Boom } from '@hapi/boom'
-import { makeWASocket } from './lib/simple.js'
+import { makeWASocket } from '../lib/simple.js'
 
 if (global.conns instanceof Array) console.log()
 else global.conns = []
