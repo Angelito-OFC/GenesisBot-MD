@@ -1,6 +1,7 @@
 import { watchFile, unwatchFile } from 'fs' 
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
+import * as ws from 'ws'
 import fs from 'fs'
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
